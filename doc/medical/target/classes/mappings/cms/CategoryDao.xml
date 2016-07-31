@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.childraise.medical.cms.dao.CategoryDao">
+		<select id="findById" resultType="Category">
+         	select * from category where id=#{id}
+         </select>
+         
+         <select id="findByPid" resultType="Category">
+         	select * from category where pid=#{pid}
+         </select>
+
+         <select id="findlevel1" resultType="Category">
+         	select * from category where level=1
+         </select>
+         
+         <select id="findNextLevelById" resultType="Category">
+         	select * from category where pid=#{id}
+         </select>
+         
+         <insert id="save" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+         	insert into category(pid,title,level,intro) values 
+         	(#{pid},#{title},#{level},#{intro})
+         </insert>
+         
+         <select id="findAllCate" resultType="Category">
+         	select * from category where level=3
+         </select>
+         
+</mapper>

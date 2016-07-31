@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+        <!-- 命名空间 -->
+    <typeAliases>
+    	<typeAlias alias="User" type="com.childraise.medical.sys.model.User"/>
+    	<typeAlias alias="Doctor" type="com.childraise.medical.sys.model.Doctor"/>
+    	<typeAlias alias="Category" type="com.childraise.medical.cms.model.Category"/>
+    	<typeAlias alias="Archive" type="com.childraise.medical.sys.model.Archive"/>
+    	<typeAlias alias="Document" type="com.childraise.medical.sys.model.Document"/>
+    </typeAliases>
+ 
+    <!-- 映射map -->
+    <mappers>
+    </mappers>
+</configuration>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.childraise.medical.cms.dao.DocumentDao">
+         
+         <select id="get" resultType="Document">
+         	select * from document where id=#{id}
+         </select>
+         
+        
+         <select id="getAllDoc" resultType="Document">
+         	select * from document
+         </select>
+        <!--  <select id="selectCate" parameterType="int" resultType="Category" >     
+		    select * from category where id =#{id}     
+		</select> -->
+         
+         <insert id="save" parameterType="Document" useGeneratedKeys="true" keyProperty="id">
+         	insert into document(category,title,content) values 
+         	(#{category.id},#{title},#{content})
+         </insert>
+</mapper>
