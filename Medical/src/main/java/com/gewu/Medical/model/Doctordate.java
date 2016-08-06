@@ -62,4 +62,11 @@ public class Doctordate {
     public void setInfo(String info) {
         this.info = info == null ? null : info.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Doctordate [id=" + id + ", doctorid=" + doctorid + ", userid="
+				+ userid + ", orderid=" + orderid + ", orderdate=" + orderdate
+				+ ", info=" + info + "]";
+	}
 }

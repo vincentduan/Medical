@@ -293,4 +293,23 @@ public class Doctor {
     public void setPersonalclinicinfo(String personalclinicinfo) {
         this.personalclinicinfo = personalclinicinfo == null ? null : personalclinicinfo.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Doctor [id=" + id + ", username=" + username + ", password="
+				+ password + ", accounttype=" + accounttype + ", isrealname="
+				+ isrealname + ", licensenum=" + licensenum + ", telphone="
+				+ telphone + ", status=" + status + ", role=" + role
+				+ ", email=" + email + ", hospital=" + hospital
+				+ ", department=" + department + ", brief=" + brief + ", info="
+				+ info + ", score=" + score + ", fansnum=" + fansnum
+				+ ", price=" + price + ", advantage=" + advantage
+				+ ", background=" + background + ", achievement=" + achievement
+				+ ", avatar=" + avatar + ", createtime=" + createtime
+				+ ", updatetime=" + updatetime + ", isdel=" + isdel
+				+ ", englishname=" + englishname + ", education=" + education
+				+ ", workingexp=" + workingexp + ", haspersonalclinic="
+				+ haspersonalclinic + ", personalclinicinfo="
+				+ personalclinicinfo + "]";
+	}
 }

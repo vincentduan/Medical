@@ -22,117 +22,107 @@
 			<div class="col-md-10">
 				<ul class="nav nav-tabs">
 					<li><a href="<%=basePath%>cms/doctor/listView">医生列表</a></li>
-					<li class="active"><a href="<%=basePath%>cms/doctor/formView">添加医生</a></li>
+					<li class="active"><a href="<%=basePath%>cms/doctor/formView"><c:if test="${tagType == 1 }">修改</c:if><c:if test="${tagType == 0 }">添加</c:if>医生</a></li>
 				</ul>
-				<form:form id="editForm" modelAttribute="project"
-					action="${ctx}/projects/project/modify.do" method="post"
-					class="form-horizontal">
+				<form:form id="editForm" modelAttribute="doctorVo" action="${ctx}/cms/doctor/modify" method="post" class="form-horizontal">
+					<fieldset>
 					<form:hidden path="id" />
-					<div class="control-group">
-						<label class="control-label">项目名称:</label>
-						<div class="controls">
-							<form:input path="projectname" htmlEscape="false" maxlength="50"
-								class="required" />
+					<div class="form-group">
+						<label class="control-label col-sm-2">医生姓名</label>
+						<div class="col-sm-5">
+							<form:input path="username" htmlEscape="false" maxlength="50" class="form-control" />
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label">项目摘要:</label>
-						<div class="controls">
-							<form:input path="projectbrief" htmlEscape="false" maxlength="50"
-								class="required" />
+					<div class="form-group">
+						<label class="control-label col-sm-2">英文姓名</label>
+						<div class="col-sm-5">
+							<form:input path="englishname" htmlEscape="false" maxlength="50" class="form-control" />
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label">项目状态:</label>
-						<div class="controls">
-							<form:select path="projectstatus" name="projectstatus">
-								<form:option value="0" label="发布" />
-								<form:option value="1" label="众筹" />
-								<form:option value="2" label="验收" />
-								<form:option value="3" label="完成" />
-							</form:select>
+					<div class="form-group">
+						<label class="control-label col-sm-2">联系方式</label>
+						<div class="col-sm-5">
+							<form:input path="telphone" htmlEscape="false" maxlength="50" class="form-control" />
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label">项目LOGO:</label>
-						<div class="controls" style="width: 50%">
-							<form:hidden path="projectlogo" />
-							<input name="fileupload" type="file" class="file projectlogo">
+					<div class="form-group">
+						<label class="control-label col-sm-2">所在医院:</label>
+						<div class="col-sm-5">
+							<form:input path="hospital" htmlEscape="false" maxlength="50" class="form-control" />
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label">封面图:</label>
-						<div class="controls" style="width: 50%">
-							<form:hidden path="coverimage" />
-							<input name="fileupload" type="file" class="file coverimage">
+					<div class="form-group">
+						<label class="control-label col-sm-2">科室</label>
+						<div class="col-sm-5">
+							<%-- <form:input path="department_id" htmlEscape="false" maxlength="50" class="form-control" /> --%>
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label">项目发布时间:</label>
-						<div class="controls">
-							<%-- <form:input path="starttime" readonly="readonly" htmlEscape="false" maxlength="50" class="required times" /> --%>
-							<input type="text" readonly id="starttime" name="starttime"
-								maxlength="50" class="required times"
-								placeholder="<fmt:formatDate value='${project.starttime }' pattern='yyyy-MM-dd'/>" />
+					<div class="form-group">
+						<label class="control-label col-sm-2">职务:</label>
+						<div class="col-sm-5">
+							<form:input path="role" htmlEscape="false" maxlength="50" class="form-control" />
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label">项目众筹时间:</label>
-						<div class="controls">
-							<input type="text" readonly id="crowdtime" name="crowdtime"
-								maxlength="50" class="required times"
-								placeholder="<fmt:formatDate value='${project.crowdtime }' pattern='yyyy-MM-dd'/>" />
+					<div class="form-group">
+						<label class="control-label col-sm-2">评分:</label>
+						<div class="col-sm-5">
+							<form:input path="score" htmlEscape="false" maxlength="50" class="form-control" />
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label">项目验收时间:</label>
-						<div class="controls">
-							<input type="text" readonly id="examinetime" name="examinetime"
-								maxlength="50" class="required times"
-								placeholder="<fmt:formatDate value='${project.examinetime }' pattern='yyyy-MM-dd'/>" />
+					<div class="form-group">
+						<label class="control-label col-sm-2">价格:</label>
+						<div class="col-sm-5">
+							<form:input path="price" htmlEscape="false" maxlength="50" class="form-control" />
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label">项目结束时间:</label>
-						<div class="controls">
-							<input type="text" readonly id="endtime" name="endtime"
-								maxlength="50" class="required times"
-								placeholder="<fmt:formatDate value='${project.endtime }' pattern='yyyy-MM-dd'/>" />
+					<div class="form-group">
+						<label class="control-label col-sm-2">擅长:</label>
+						<div class="col-sm-5">
+							<form:input path="advantage" htmlEscape="false" maxlength="50" class="form-control" />
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label">是否允许点赞:</label>
-						<div class="controls">
-							<form:select path="isallowedagree" name="isallowedagree">
-								<form:option value="0" label="不允许对本项目点赞" />
-								<form:option value="1" label="允许对本项目点赞" />
-								<form:option value="2" label="允许对子项目点赞" />
-								<form:option value="3" label="同时允许" />
-							</form:select>
+					<div class="form-group">
+						<label class="control-label col-sm-2">个人介绍:</label>
+						<div class="col-sm-5">
+							<form:input path="brief" htmlEscape="false" maxlength="50" class="form-control" />
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label">省分:</label>
-						<div class="controls">
-							<form:select path="provid">
-								<%-- <c:forEach items="${fns:getProvList()}" var="prov">
-									<form:option value="${prov.uvalue }">${prov.ukey }</form:option>
-								</c:forEach> --%>
-							</form:select>
+					<div class="form-group">
+						<label class="control-label col-sm-2">教育背景:</label>
+						<div class="col-sm-5">
+							<form:input path="background" htmlEscape="false" maxlength="50" class="form-control" />
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label">项目描述:</label>
-						<div class="controls">
-							<form:textarea path="projectcontent" id="projectcontent"
-								name="projectcontent" style="width: 600px; height: 200px" />
+					<div class="form-group">
+						<label class="control-label col-sm-2">个人荣誉:</label>
+						<div class="col-sm-5">
+							<form:input path="achievement" htmlEscape="false" maxlength="50" class="form-control" />
 						</div>
 					</div>
-					<div class="form-actions">
-						<input type="submit" class="btn btn-primary" type="button"
-							value="保 存"> <input id="btnCancel" class="btn"
-							type="button" value="取消" onclick="history.go(-1)" />
+					<div class="form-group">
+						<label class="control-label col-sm-2">从医经历:</label>
+						<div class="col-sm-5">
+							<form:input path="workingexp" htmlEscape="false" maxlength="50" class="form-control" />
+						</div>
 					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2">是否有个人诊所</label>
+						<div class="col-sm-5">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2">个人诊所信息</label>
+						<div class="col-sm-5">
+							<form:input path="personalclinicinfo" htmlEscape="false" maxlength="50" class="form-control" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10s">
+							<input type="submit" class="btn btn-primary" type="button" value="保 存">
+							<input id="btnCancel" class="btn" type="button" value="取消" onclick="history.go(-1)" />
+						</div>
+					</div>
+					</fieldset>
 				</form:form>
 			</div>
 

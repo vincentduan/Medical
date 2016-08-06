@@ -21,7 +21,15 @@ public class Article {
 
     private String document;
 
-    public Integer getId() {
+    @Override
+	public String toString() {
+		return "Article [id=" + id + ", doctorid=" + doctorid + ", title="
+				+ title + ", department=" + department + ", status=" + status
+				+ ", info=" + info + ", createtime=" + createtime
+				+ ", updatetime=" + updatetime + ", document=" + document + "]";
+	}
+
+	public Integer getId() {
         return id;
     }
 

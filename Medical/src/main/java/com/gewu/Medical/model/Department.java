@@ -72,4 +72,12 @@ public class Department {
     public void setUpdatetime(Date updatetime) {
         this.updatetime = updatetime;
     }
+
+	@Override
+	public String toString() {
+		return "Department [id=" + id + ", name=" + name + ", brief=" + brief
+				+ ", info=" + info + ", isdel=" + isdel + ", createtime="
+				+ createtime + ", updatetime=" + updatetime + "]";
+	}
+    
 }

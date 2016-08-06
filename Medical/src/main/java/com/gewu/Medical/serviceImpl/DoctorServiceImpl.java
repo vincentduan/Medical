@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.gewu.Medical.dao.DoctorMapper;
 import com.gewu.Medical.model.Doctor;
 import com.gewu.Medical.model.DoctorExample;
+import com.gewu.Medical.model.DoctorExample.Criteria;
 import com.gewu.Medical.service.DoctorService;
 import com.gewu.Medical.utils.Page;
 
@@ -34,18 +35,19 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 	@Override
 	public Doctor findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		if (id == null)
+			return null;
+		return doctorMapper.selectByPrimaryKey(Integer.parseInt(id+""));
 	}
 	@Override
 	public int save(Doctor t) {
 		// TODO Auto-generated method stub
-		return 0;
+		return doctorMapper.insertSelective(t);
 	}
 	@Override
 	public int update(Doctor t) {
 		// TODO Auto-generated method stub
-		return 0;
+		return doctorMapper.updateByPrimaryKeySelective(t);
 	}
 	@Override
 	public int deleteById(Long id) {
@@ -53,9 +55,15 @@ public class DoctorServiceImpl implements DoctorService {
 		return 0;
 	}
 	@Override
-	public void queryByPage(Page<Doctor> page, Doctor t) {
+	public void queryByPage(Page<Doctor> page, Doctor d) {
 		// TODO Auto-generated method stub
 		DoctorExample doctorExample = new DoctorExample();
+		Criteria criteria = doctorExample.createCriteria();
+		if(d!=null){
+			if(d.getUsername()!=null){
+				criteria.andUsernameLike(d.getUsername());
+			}
+		}
 		page2Exam(page, doctorExample);
 		int total = doctorMapper.countByExample(doctorExample);
 		List<Doctor> list = doctorMapper.selectByExample(doctorExample);

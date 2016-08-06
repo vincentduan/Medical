@@ -12,5 +12,5 @@
 	src="<%=basePath%>resources/bootstrap3.3.5/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="<%=basePath%>resources/bootstrap3.3.5/css/bootstrap.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=basePath%>resources/css/my.css">
+<%-- <link rel="stylesheet" type="text/css"
+	href="<%=basePath%>resources/css/my.css"> --%>
