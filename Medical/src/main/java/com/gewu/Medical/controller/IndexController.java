@@ -1,4 +1,4 @@
-package com.ddy.Medical.controller;
+package com.gewu.Medical.controller;
 
 import java.util.LinkedList;
 import java.util.List;

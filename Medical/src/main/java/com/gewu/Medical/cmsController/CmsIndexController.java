@@ -1,4 +1,4 @@
-package com.ddy.Medical.cmsController;
+package com.gewu.Medical.cmsController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

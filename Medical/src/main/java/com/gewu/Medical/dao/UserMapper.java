@@ -1,8 +1,10 @@
-package com.ddy.Medical.dao;
+package com.gewu.Medical.dao;
 
-import com.ddy.Medical.model.User;
-import com.ddy.Medical.model.UserExample;
+import com.gewu.Medical.model.User;
+import com.gewu.Medical.model.UserExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {

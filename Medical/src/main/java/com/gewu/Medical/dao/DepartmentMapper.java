@@ -1,8 +1,10 @@
-package com.ddy.Medical.dao;
+package com.gewu.Medical.dao;
 
-import com.ddy.Medical.model.Department;
-import com.ddy.Medical.model.DepartmentExample;
+import com.gewu.Medical.model.Department;
+import com.gewu.Medical.model.DepartmentExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface DepartmentMapper {

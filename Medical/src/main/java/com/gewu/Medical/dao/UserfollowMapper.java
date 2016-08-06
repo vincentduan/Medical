@@ -1,8 +1,10 @@
-package com.ddy.Medical.dao;
+package com.gewu.Medical.dao;
 
-import com.ddy.Medical.model.Userfollow;
-import com.ddy.Medical.model.UserfollowExample;
+import com.gewu.Medical.model.Userfollow;
+import com.gewu.Medical.model.UserfollowExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserfollowMapper {

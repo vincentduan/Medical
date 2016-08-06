@@ -1,6 +1,6 @@
-package com.ddy.Medical.service;
+package com.gewu.Medical.service;
 
-import com.ddy.Medical.utils.Page;
+import com.gewu.Medical.utils.Page;
 
 /**
  * 业务逻辑service基类,提供基本的CRUD

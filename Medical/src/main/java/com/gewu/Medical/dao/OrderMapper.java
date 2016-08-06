@@ -1,8 +1,10 @@
-package com.ddy.Medical.dao;
+package com.gewu.Medical.dao;
 
-import com.ddy.Medical.model.Order;
-import com.ddy.Medical.model.OrderExample;
+import com.gewu.Medical.model.Order;
+import com.gewu.Medical.model.OrderExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface OrderMapper {

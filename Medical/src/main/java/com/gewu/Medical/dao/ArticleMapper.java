@@ -1,8 +1,10 @@
-package com.ddy.Medical.dao;
+package com.gewu.Medical.dao;
 
-import com.ddy.Medical.model.Article;
-import com.ddy.Medical.model.ArticleExample;
+import com.gewu.Medical.model.Article;
+import com.gewu.Medical.model.ArticleExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface ArticleMapper {

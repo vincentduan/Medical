@@ -1,8 +1,10 @@
-package com.ddy.Medical.dao;
+package com.gewu.Medical.dao;
 
-import com.ddy.Medical.model.Doctordate;
-import com.ddy.Medical.model.DoctordateExample;
+import com.gewu.Medical.model.Doctordate;
+import com.gewu.Medical.model.DoctordateExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface DoctordateMapper {

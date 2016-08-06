@@ -1,4 +1,4 @@
-package com.ddy.Medical.serviceImpl;
+package com.gewu.Medical.serviceImpl;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import org.apache.commons.lang.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ddy.Medical.dao.DoctorMapper;
-import com.ddy.Medical.model.Doctor;
-import com.ddy.Medical.model.DoctorExample;
-import com.ddy.Medical.service.DoctorService;
-import com.ddy.Medical.utils.Page;
+import com.gewu.Medical.dao.DoctorMapper;
+import com.gewu.Medical.model.Doctor;
+import com.gewu.Medical.model.DoctorExample;
+import com.gewu.Medical.service.DoctorService;
+import com.gewu.Medical.utils.Page;
 
 @Service
 public class DoctorServiceImpl implements DoctorService {

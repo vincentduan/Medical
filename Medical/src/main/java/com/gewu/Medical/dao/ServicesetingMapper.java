@@ -1,8 +1,10 @@
-package com.ddy.Medical.dao;
+package com.gewu.Medical.dao;
 
-import com.ddy.Medical.model.Serviceseting;
-import com.ddy.Medical.model.ServicesetingExample;
+import com.gewu.Medical.model.Serviceseting;
+import com.gewu.Medical.model.ServicesetingExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface ServicesetingMapper {

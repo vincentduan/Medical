@@ -12,7 +12,7 @@
 	<description>Spring公共配置</description>
 
 	<!-- 自动扫描 -->
-	<context:component-scan base-package="com.ddy.Medical" />
+	<context:component-scan base-package="com.gewu.Medical" />
 	<mvc:annotation-driven />
 	<context:annotation-config />
 

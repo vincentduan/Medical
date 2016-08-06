@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ddy.Medical.dao.UserfollowMapper" >
-  <resultMap id="BaseResultMap" type="com.ddy.Medical.model.Userfollow" >
+<mapper namespace="com.gewu.Medical.dao.UserfollowMapper" >
+  <resultMap id="BaseResultMap" type="com.gewu.Medical.model.Userfollow" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="userid" property="userid" jdbcType="INTEGER" />
     <result column="doctorid" property="doctorid" jdbcType="INTEGER" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List" >
     id, userid, doctorid
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ddy.Medical.model.UserfollowExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.gewu.Medical.model.UserfollowExample" >
     select
     <if test="distinct" >
       distinct
@@ -95,19 +95,19 @@
     delete from userfollow
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ddy.Medical.model.UserfollowExample" >
+  <delete id="deleteByExample" parameterType="com.gewu.Medical.model.UserfollowExample" >
     delete from userfollow
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ddy.Medical.model.Userfollow" >
+  <insert id="insert" parameterType="com.gewu.Medical.model.Userfollow" >
     insert into userfollow (id, userid, doctorid
       )
     values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{doctorid,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ddy.Medical.model.Userfollow" >
+  <insert id="insertSelective" parameterType="com.gewu.Medical.model.Userfollow" >
     insert into userfollow
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -132,7 +132,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ddy.Medical.model.UserfollowExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.gewu.Medical.model.UserfollowExample" resultType="java.lang.Integer" >
     select count(*) from userfollow
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -164,7 +164,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ddy.Medical.model.Userfollow" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.gewu.Medical.model.Userfollow" >
     update userfollow
     <set >
       <if test="userid != null" >
@@ -176,7 +176,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ddy.Medical.model.Userfollow" >
+  <update id="updateByPrimaryKey" parameterType="com.gewu.Medical.model.Userfollow" >
     update userfollow
     set userid = #{userid,jdbcType=INTEGER},
       doctorid = #{doctorid,jdbcType=INTEGER}

@@ -1,4 +1,4 @@
-package com.ddy.Medical;
+package com.gewu.Medical;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

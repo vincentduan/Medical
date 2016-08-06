@@ -1,4 +1,4 @@
-package com.ddy.Medical.controller;
+package com.gewu.Medical.controller;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ddy.Medical.model.Doctor;
-import com.ddy.Medical.service.DoctorService;
+import com.gewu.Medical.model.Doctor;
+import com.gewu.Medical.service.DoctorService;
 
 @Controller
 @RequestMapping(value = "/doctor")

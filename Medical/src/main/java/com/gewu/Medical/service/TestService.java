@@ -1,4 +1,4 @@
-package com.ddy.Medical.service;
+package com.gewu.Medical.service;
 
 public class TestService {
 

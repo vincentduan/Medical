@@ -1,4 +1,4 @@
-package com.ddy.Medical.vo;
+package com.gewu.Medical.vo;
 
 public class Status {
 	String status;

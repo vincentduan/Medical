@@ -1,4 +1,4 @@
-package com.ddy.Medical.utils;
+package com.gewu.Medical.utils;
 
 import java.io.Serializable;
 import java.util.ArrayList;

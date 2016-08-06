@@ -20,17 +20,17 @@
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
-		<javaModelGenerator targetPackage="com.ddy.Medical.model"
+		<javaModelGenerator targetPackage="com.gewu.Medical.model"
 			targetProject="src\main\java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
-		<sqlMapGenerator targetPackage="com.ddy.Medical.mapping"
+		<sqlMapGenerator targetPackage="com.gewu.Medical.mapping"
 			targetProject="src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.ddy.Medical.dao" targetProject="src\main\java">
+			targetPackage="com.gewu.Medical.dao" targetProject="src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<table tableName="user" domainObjectName="User"

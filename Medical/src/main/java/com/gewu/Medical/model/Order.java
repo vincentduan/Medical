@@ -1,4 +1,4 @@
-package com.ddy.Medical.model;
+package com.gewu.Medical.model;
 
 import java.util.Date;
 

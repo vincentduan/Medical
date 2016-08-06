@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ddy.Medical.dao.DoctorMapper" >
-  <resultMap id="BaseResultMap" type="com.ddy.Medical.model.Doctor" >
+<mapper namespace="com.gewu.Medical.dao.DoctorMapper" >
+  <resultMap id="BaseResultMap" type="com.gewu.Medical.model.Doctor" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -96,7 +96,7 @@
     achievement, avatar, createTime, updateTime, isDel, englishName, education, workingExp, 
     hasPersonalClinic, personalClinicInfo
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ddy.Medical.model.DoctorExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.gewu.Medical.model.DoctorExample" >
     select
     <if test="distinct" >
       distinct
@@ -124,13 +124,13 @@
     delete from doctor
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ddy.Medical.model.DoctorExample" >
+  <delete id="deleteByExample" parameterType="com.gewu.Medical.model.DoctorExample" >
     delete from doctor
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ddy.Medical.model.Doctor" >
+  <insert id="insert" parameterType="com.gewu.Medical.model.Doctor" >
     insert into doctor (id, username, password, 
       accounttype, isRealname, licenseNum, 
       telphone, status, role, 
@@ -152,7 +152,7 @@
       #{englishname,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, #{workingexp,jdbcType=VARCHAR}, 
       #{haspersonalclinic,jdbcType=VARCHAR}, #{personalclinicinfo,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.ddy.Medical.model.Doctor" >
+  <insert id="insertSelective" parameterType="com.gewu.Medical.model.Doctor" >
     insert into doctor
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -333,7 +333,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ddy.Medical.model.DoctorExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.gewu.Medical.model.DoctorExample" resultType="java.lang.Integer" >
     select count(*) from doctor
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -469,7 +469,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ddy.Medical.model.Doctor" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.gewu.Medical.model.Doctor" >
     update doctor
     <set >
       <if test="username != null" >
@@ -559,7 +559,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ddy.Medical.model.Doctor" >
+  <update id="updateByPrimaryKey" parameterType="com.gewu.Medical.model.Doctor" >
     update doctor
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

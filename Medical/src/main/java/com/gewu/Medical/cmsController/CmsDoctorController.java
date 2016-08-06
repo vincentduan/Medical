@@ -1,4 +1,4 @@
-package com.ddy.Medical.cmsController;
+package com.gewu.Medical.cmsController;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.ddy.Medical.model.Doctor;
-import com.ddy.Medical.service.DoctorService;
-import com.ddy.Medical.utils.Page;
+import com.gewu.Medical.model.Doctor;
+import com.gewu.Medical.service.DoctorService;
+import com.gewu.Medical.utils.Page;
 
 
 @Controller
