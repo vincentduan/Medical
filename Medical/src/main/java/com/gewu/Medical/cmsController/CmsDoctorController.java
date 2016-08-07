@@ -73,6 +73,15 @@ public class CmsDoctorController {
 		return path + "doctor-form";
 	}
 	
+	@RequestMapping(value = "add", method = RequestMethod.POST)
+	public String addImpl(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
+		Doctor doctor = new Doctor();
+		String username = request.getParameter("username");
+		doctor.setUsername(username);
+		doctorService.save(doctor);
+		return "redirect:/cms/doctor/listView";
+	}
+	
 	/*
 	 * 修改医生实现
 	 */

@@ -192,7 +192,7 @@
 					<configuration>
 						<webResources>
 							<resource>
-								<directory>WebContent</directory>
+								<directory>src/main/webapp/WEB-INF</directory>
 							</resource>
 						</webResources>
 					</configuration>
