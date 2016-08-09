@@ -52,7 +52,7 @@ public class DoctorServiceImpl implements DoctorService {
 	@Override
 	public int deleteById(Long id) {
 		// TODO Auto-generated method stub
-		return 0;
+		return doctorMapper.deleteByPrimaryKey(Integer.parseInt(id+""));
 	}
 	@Override
 	public void queryByPage(Page<Doctor> page, Doctor d) {
