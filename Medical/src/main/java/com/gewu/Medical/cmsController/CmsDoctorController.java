@@ -1,5 +1,6 @@
 package com.gewu.Medical.cmsController;
 
+import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -73,24 +74,44 @@ public class CmsDoctorController {
 		return path + "doctor-form";
 	}
 	
-	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String addImpl(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
-		Doctor doctor = new Doctor();
-		String username = request.getParameter("username");
-		doctor.setUsername(username);
-		doctorService.save(doctor);
-		return "redirect:/cms/doctor/listView";
-	}
-	
 	/*
-	 * 修改医生实现
+	 * 添加或修改医生实现
 	 */
 	@RequestMapping(value = "modify", method = RequestMethod.POST)
-	public String modify(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("doctorVo") DoctorVo doctorVo,ModelMap map) {
+	public String modify(HttpServletRequest request, HttpServletResponse response) {
 		Doctor doctor = new Doctor();
-		doctor.setUsername(doctorVo.getUsername());
-		if(doctorVo.getId()!=null){
-			doctor.setId(doctorVo.getId());
+		String username = request.getParameter("username");
+		String englistName = request.getParameter("englistName");
+		String telphone = request.getParameter("telphone");
+		String hospital = request.getParameter("hospital");
+		String department = request.getParameter("department");
+		String role = request.getParameter("role");
+		String score = request.getParameter("score");
+		String price = request.getParameter("price");
+		String advantage = request.getParameter("advantage");
+		String background = request.getParameter("background");
+		String achievement = request.getParameter("achievement");
+		String workingexp = request.getParameter("workingexp");
+		String haspersonalclinic = request.getParameter("haspersonalclinic");
+		String personalclinicinfo = request.getParameter("personalclinicinfo");
+		doctor.setUsername(username);
+		doctor.setEnglishname(englistName);
+		doctor.setTelphone(telphone);
+		doctor.setHospital(hospital);
+		doctor.setDepartment(Integer.parseInt(department));
+		doctor.setRole(role);
+		doctor.setScore(new BigDecimal(score));
+		doctor.setPrice(Integer.parseInt(price));
+		doctor.setAdvantage(advantage);
+		doctor.setAchievement(achievement);
+		doctor.setBackground(background);
+		doctor.setWorkingexp(workingexp);
+		doctor.setHaspersonalclinic(haspersonalclinic);
+		doctor.setPersonalclinicinfo(personalclinicinfo);
+		doctor.setIsdel(false);
+		String doctorid = request.getParameter("id");
+		if(StringUtils.isNotEmpty(doctorid)){
+			doctor.setId(Integer.parseInt(doctorid));
 			doctorService.update(doctor);
 		}else{
 			doctorService.save(doctor);
@@ -111,7 +132,14 @@ public class CmsDoctorController {
 	 * 删除医生
 	 */
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
-	public String delete(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
+	public String delete(HttpServletRequest request, HttpServletResponse response) {
+		String doctorid = request.getParameter("id");
+		if(StringUtils.isNotEmpty(doctorid)){
+			Long id = Long.parseLong(doctorid);
+			Doctor d = doctorService.findById(id);
+			d.setIsdel(true);
+			doctorService.update(d);
+		}
 		return "redirect:/cms/doctor/listView";
 	}
 	private List<DoctorVo> getDoctorVoList(List<Doctor> doctors) {

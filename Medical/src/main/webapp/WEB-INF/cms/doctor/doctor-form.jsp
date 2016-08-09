@@ -126,79 +126,79 @@
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">英文名</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="englistName" class="form-control" placeholder="Englist Name">
+												<input type="text" id="englistName" name="englistName" class="form-control" placeholder="Englist Name">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">联系方式</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+												<input type="text" id="telphone" name="telphone" class="form-control" placeholder="Text">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">所在医院</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+												<input type="text" id="hospital" name="hospital" class="form-control" placeholder="Text">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">科室</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+												<input type="text" id="department" name="department" class="form-control" placeholder="Text">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">职务</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+												<input type="text" id="role" name="role" class="form-control" placeholder="Text">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">评分</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+												<input type="text" id="score" name="score" class="form-control" placeholder="Text">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">价格</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+												<input type="text" id="price" name="price" class="form-control" placeholder="Text">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">擅长</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+												<input type="text" id="advantage" name="advantage" class="form-control" placeholder="Text">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">教育背景</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+												<input type="text" id="background" name="background" class="form-control" placeholder="Text">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">个人荣誉</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+												<input type="text" id="achievement" name="achievement" class="form-control" placeholder="Text">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">从医经历</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+												<input type="text" id="workingexp" name="workingexp" class="form-control" placeholder="Text">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">是否有个人诊所</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+												<input type="text" id="haspersonalclinic" name="haspersonalclinic" class="form-control" placeholder="Text">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">个人诊所信息</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+												<input type="text" id="personalclinicinfo" name="personalclinicinfo" class="form-control" placeholder="Text">
 											</div>
 										</div>
 										<!-- <div class="form-group">

@@ -62,6 +62,7 @@ public class DoctorServiceImpl implements DoctorService {
 		if(d!=null){
 			if(d.getUsername()!=null){
 				criteria.andUsernameLike(d.getUsername());
+				criteria.andIsdelEqualTo(false);
 			}
 		}
 		page2Exam(page, doctorExample);
