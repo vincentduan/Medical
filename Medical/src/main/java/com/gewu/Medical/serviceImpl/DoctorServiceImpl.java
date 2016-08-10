@@ -23,7 +23,7 @@ public class DoctorServiceImpl implements DoctorService {
 		// TODO Auto-generated method stub
 		DoctorExample doctorExample = new DoctorExample();
 		DoctorExample.Criteria criteria = doctorExample.createCriteria();
-		criteria.andDepartmentEqualTo(departmentid);
+		//criteria.andDepartmentEqualTo(departmentid);
 		List<Doctor> doctors = doctorMapper.selectByExample(doctorExample);
 		return doctors;
 	}

@@ -98,7 +98,7 @@ public class CmsDoctorController {
 		doctor.setEnglishname(englistName);
 		doctor.setTelphone(telphone);
 		doctor.setHospital(hospital);
-		doctor.setDepartment(Integer.parseInt(department));
+		doctor.setDepartment(department);
 		doctor.setRole(role);
 		doctor.setScore(new BigDecimal(score));
 		doctor.setPrice(Integer.parseInt(price));
@@ -151,9 +151,7 @@ public class CmsDoctorController {
 			doctorVo.setUsername(doctor.getUsername());
 			doctorVo.setTelphone(doctor.getTelphone());
 			doctorVo.setHospital(doctor.getHospital());
-			if(doctor.getDepartment()!=null){
-				doctorVo.setDepartmentInfo(departmentService.findById(Long.parseLong(doctor.getDepartment()+"")));
-			}
+			doctorVo.setDepartmentInfo(doctor.getDepartment());
 			doctorVo.setRole(doctor.getRole());
 			doctorVo.setScore(doctor.getScore());
 			doctorVo.setEnglishname(doctor.getEnglishname());
@@ -161,7 +159,6 @@ public class CmsDoctorController {
 			doctorVo.setAdvantage(doctor.getAdvantage());
 			doctorVo.setBackground(doctor.getBackground());
 			doctorVo.setBrief(doctor.getBrief());
-			doctorVo.setEducation(doctor.getEducation());
 			doctorVo.setFansnum(doctor.getFansnum());
 			doctorVo.setWorkingexp(doctor.getWorkingexp());
 			doctorVo.setPersonalclinicinfo(doctor.getPersonalclinicinfo());
