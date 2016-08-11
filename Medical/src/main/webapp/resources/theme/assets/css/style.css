@@ -1,4 +1,4 @@
-﻿html,
+html,
 body {
 background: #ecedf0;
 width: 100%;
@@ -2027,7 +2027,7 @@ width: 14px;
 text-align: center;
 }
 select {
-background: #f5f5f5 url("../img/select.png") no-repeat !important;
+/* background: #f5f5f5 url("../img/select.png") no-repeat !important; */
 background-size: 24px 20px !important;
 background-position: right center !important;
 -webkit-border-radius: 0;

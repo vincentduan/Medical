@@ -3,14 +3,22 @@
 <html>
 <head>
 <title>CMS</title>
+
 <%@include file="/WEB-INF/cms/common/head.jsp"%>
 <%@include file="/WEB-INF/cms/common/taglib.jsp"%>
 <jsp:include page="/WEB-INF/cms/common/themeHead.jsp"></jsp:include>
+<script type="text/javascript"
+	src="<%=basePath%>resources/js/jquery.validate.js"></script>
 <script type="text/javascript">
-	function submitForm(){
+	/* function submitForm(){
 		$("#formAdd").submit();
-	}
+	} */
 </script>
+<style type="text/css">
+.valerror{
+color: #a94442;
+}
+</style>
 </head>
 <body>
 <!-- Start: Header -->
@@ -115,11 +123,11 @@
 									<h6><i class="fa fa-indent red"></i>添加医生信息</h6>							
 								</div>
 								<div class="panel-body">
-									<form id="formAdd" action="<%=basePath%>cms/doctor/modify" method="post" class="form-horizontal ">
+									<form id="formAdd" action="<%=basePath%>cms/doctor/modify" method="post" class="form-horizontal">
 										<div class="form-group">
 											<label class="col-md-3 control-label">医生姓名</label>
 											<div class="col-md-9">
-												<input type="text" id="text-input" name="username" class="form-control" placeholder="Username">
+												<input type="text" id="username" name="username" class="form-control" placeholder="Username">
 											</div>
 										</div>
 										<div class="form-group">
@@ -140,10 +148,21 @@
 												<input type="text" id="hospital" name="hospital" class="form-control" placeholder="hospital">
 											</div>
 										</div>
-										<div class="form-group">
+										<!-- <div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">科室</label>
 											<div class="col-md-9">
 												<input type="text" id="department" name="department" class="form-control" placeholder="department">
+											</div>
+										</div> -->
+										<div class="form-group">
+											<label class="col-md-3 control-label" for="select">科室</label>
+											<div class="col-md-9">
+												<select id="department" name="department" class="form-control" size="1">
+													<option value="0">请选择科室</option>
+													<option value="1">Option #1</option>
+													<option value="2">Option #2</option>
+													<option value="3">Option #3</option>
+												</select>
 											</div>
 										</div>
 										<div class="form-group">
@@ -216,7 +235,7 @@
 										<div class="form-group">
 											<div class="col-md-5"></div>
 											<div class="col-md-7">
-												<button type="button" class="bk-margin-5 btn btn-default" onclick="submitForm()">添加医生</button>
+												<button  type="submit" class="bk-margin-5 btn btn-default" >添加医生</button>
 											</div>
 										</div>
 										<br>
@@ -231,5 +250,40 @@
 		</div><!--/container-->
 		<div class="clearfix"></div>
 		<jsp:include page="/WEB-INF/cms/common/themeFoot.jsp"></jsp:include>
+<script type="text/javascript">
+$.validator.setDefaults( {
+	submitHandler: function () {
+		alert( "submitted!" );
+		$("#formAdd").submit();
+	}
+} );
+$(document).ready( function () {
+		console.log("sdfsdf");
+		$("#formAdd").validate({
+			rules: {
+				username: {
+					required: true,
+					minlength: 2
+				}
+			},
+			messages: {
+				username: {
+					required: "Please enter a username",
+				}
+			},
+			errorElement: "em",
+			errorPlacement: function ( error, element ) {
+				// Add the `help-block` class to the error element
+				error.addClass( "valerror" );
+				if ( element.prop( "type" ) === "checkbox" ) {
+					error.insertAfter( element.parent( "label" ) );
+				} else {
+					error.insertAfter( element );
+				}
+			},
+		} );
+		console.log("end");
+	})
+</script>
 </body>
 </html>

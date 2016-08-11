@@ -151,7 +151,7 @@ public class CmsDoctorController {
 			doctorVo.setUsername(doctor.getUsername());
 			doctorVo.setTelphone(doctor.getTelphone());
 			doctorVo.setHospital(doctor.getHospital());
-			doctorVo.setDepartmentInfo(doctor.getDepartment());
+			//doctorVo.setDepartmentInfo(doctor.getDepartment());
 			doctorVo.setRole(doctor.getRole());
 			doctorVo.setScore(doctor.getScore());
 			doctorVo.setEnglishname(doctor.getEnglishname());

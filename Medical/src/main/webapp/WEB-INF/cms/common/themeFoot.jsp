@@ -9,9 +9,9 @@
 <!-- start: JavaScript-->
 		
 		<!-- Vendor JS-->				
-		<script src="<%=basePath%>resources/theme/assets/vendor/js/jquery.min.js"></script>
+<%-- 		<script src="<%=basePath%>resources/theme/assets/vendor/js/jquery.min.js"></script>
 		<script src="<%=basePath%>resources/theme/assets/vendor/js/jquery-2.1.1.min.js"></script>
-		<script src="<%=basePath%>resources/theme/assets/vendor/js/jquery-migrate-1.2.1.min.js"></script>
+		<script src="<%=basePath%>resources/theme/assets/vendor/js/jquery-migrate-1.2.1.min.js"></script> --%>
 		<script src="<%=basePath%>resources/theme/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 		<script src="<%=basePath%>resources/theme/assets/vendor/skycons/js/skycons.js"></script>		
 		
@@ -30,18 +30,18 @@
 		<script src="<%=basePath%>resources/theme/assets/plugins/xcharts/js/xcharts.min.js"></script>
 		<script src="<%=basePath%>resources/theme/assets/plugins/autosize/jquery.autosize.min.js"></script>
 		<script src="<%=basePath%>resources/theme/assets/plugins/placeholder/js/jquery.placeholder.min.js"></script>
-		<script src="<%=basePath%>resources/theme/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+		<%-- <script src="<%=basePath%>resources/theme/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script> --%>
 		<script src="<%=basePath%>resources/theme/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
 		<script src="<%=basePath%>resources/theme/assets/plugins/raphael/js/raphael.min.js"></script>
 		<script src="<%=basePath%>resources/theme/assets/plugins/morris/js/morris.min.js"></script>
 		<script src="<%=basePath%>resources/theme/assets/plugins/gauge/js/gauge.min.js"></script>		
-		<script src="<%=basePath%>resources/theme/assets/plugins/d3/js/d3.min.js"></script>		
+		<%-- <script src="<%=basePath%>resources/theme/assets/plugins/d3/js/d3.min.js"></script>	 --%>	
 		
 		<!-- Theme JS -->		
 		<script src="<%=basePath%>resources/theme/assets/js/jquery.mmenu.min.js"></script>
 		<script src="<%=basePath%>resources/theme/assets/js/core.min.js"></script>
 		
 		<!-- Pages JS -->
-		<script src="<%=basePath%>resources/theme/assets/js/pages/index.js"></script>
+		<%-- <script src="<%=basePath%>resources/theme/assets/js/pages/index.js"></script> --%>
 		
 		<!-- end: JavaScript-->
