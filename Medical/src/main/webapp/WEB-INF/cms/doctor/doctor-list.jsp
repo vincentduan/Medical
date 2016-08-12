@@ -122,15 +122,15 @@
 												</tr>
 											</thead>   
 											<tbody>								
-												<c:forEach items="${doctorVos}" var="doctorVo">
+												<c:forEach items="${doctors}" var="doctor">
 													<tr>
-														<td>${doctorVo.username }</td>
-														<td>${doctorVo.telphone }</td>
-														<td>${doctorVo.hospital }</td>
-														<td>${doctorVo.departmentInfo.name }</td>
-														<td>${doctorVo.role }</td>
-														<td>${doctorVo.score }</td>
-														<td><a href="${ctx}/cms/doctor/formView?id=${doctorVo.id }">详情&nbsp;&nbsp;</a><a href="${ctx}/cms/doctor/formView?id=${doctorVo.id }">修改&nbsp;&nbsp;</a><a href="${ctx}/cms/doctor/delete?id=${doctorVo.id }">删除&nbsp;&nbsp;</a></td>
+														<td>${doctor.username }</td>
+														<td>${doctor.telphone }</td>
+														<td>${doctor.hospital }</td>
+														<td>${doctor.department }</td>
+														<td>${doctor.role }</td>
+														<td>${doctor.score }</td>
+														<td><a href="${ctx}/cms/doctor/formView?id=${doctor.id }">详情&nbsp;&nbsp;</a><a href="${ctx}/cms/doctor/formView?id=${doctor.id }">修改&nbsp;&nbsp;</a><a href="${ctx}/cms/doctor/delete?id=${doctor.id }">删除&nbsp;&nbsp;</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>

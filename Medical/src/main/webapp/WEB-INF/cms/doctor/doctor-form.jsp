@@ -148,21 +148,10 @@ color: #a94442;
 												<input type="text" id="hospital" name="hospital" class="form-control" placeholder="hospital">
 											</div>
 										</div>
-										<!-- <div class="form-group">
+										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">科室</label>
 											<div class="col-md-9">
 												<input type="text" id="department" name="department" class="form-control" placeholder="department">
-											</div>
-										</div> -->
-										<div class="form-group">
-											<label class="col-md-3 control-label" for="select">科室</label>
-											<div class="col-md-9">
-												<select id="department" name="department" class="form-control" size="1">
-													<option value="0">请选择科室</option>
-													<option value="1">Option #1</option>
-													<option value="2">Option #2</option>
-													<option value="3">Option #3</option>
-												</select>
 											</div>
 										</div>
 										<div class="form-group">
@@ -210,7 +199,14 @@ color: #a94442;
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">是否有个人诊所</label>
 											<div class="col-md-9">
-												<input type="text" id="haspersonalclinic" name="haspersonalclinic" class="form-control" placeholder="haspersonalclinic">
+												<div class="radio-custom">													
+													<input type="radio" id="radio1" name="haspersonalclinic" value="1" checked>
+													<label for="Yes">Yes</label>
+												</div>
+												<div class="radio-custom">													
+													<input type="radio" id="radio2" name="haspersonalclinic" value="0"> 
+													<label for="No">No</label>
+												</div>
 											</div>
 										</div>
 										<div class="form-group">
@@ -253,17 +249,54 @@ color: #a94442;
 <script type="text/javascript">
 $.validator.setDefaults( {
 	submitHandler: function () {
-		alert( "submitted!" );
+		console.log("formAdd submit");
 		$("#formAdd").submit();
 	}
 } );
-$(document).ready( function () {
-		console.log("sdfsdf");
+$(function () {
 		$("#formAdd").validate({
 			rules: {
 				username: {
+					required: true
+				},
+				telphone: {
 					required: true,
-					minlength: 2
+					number:true,
+					digits:true,
+					rangelength:[11,11]
+				},
+				hospital: {
+					required: true
+				},
+				department: {
+					required: true
+				},
+				role: {
+					required: true
+				},
+				score: {
+					required: true,
+					number:true
+				},
+				price: {
+					required: true,
+					number:true,
+					digits:true
+				},
+				advantage: {
+					required: true
+				},
+				background: {
+					required: true
+				},
+				achievement: {
+					required: true
+				},
+				workingexp: {
+					required: true
+				},
+				personalclinicinfo: {
+					required: true
 				}
 			},
 			messages: {
@@ -282,7 +315,6 @@ $(document).ready( function () {
 				}
 			},
 		} );
-		console.log("end");
 	})
 </script>
 </body>

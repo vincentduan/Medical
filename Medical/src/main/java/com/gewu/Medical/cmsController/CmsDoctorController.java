@@ -42,12 +42,13 @@ public class CmsDoctorController {
 		Integer pageNo = Integer.parseInt(StringUtils.isNotBlank(request.getParameter("pageNo")) && StringUtils.isNumeric(request.getParameter("pageNo")) ? request.getParameter("pageNo")
 				: "1");
 		Page<Doctor> page = new Page<>();
-		page.setPageSize(10);
+		page.setPageSize(50);
 		page.setPageNo(pageNo);
 		doctorService.queryByPage(page, doctor);
 		List<Doctor> doctors = page.getResult();
-		List<DoctorVo> doctorVos = getDoctorVoList(doctors);
-		map.put("doctorVos", doctorVos);
+		//List<DoctorVo> doctorVos = getDoctorVoList(doctors);
+		//map.put("doctorVos", doctorVos);
+		map.put("doctors", doctors);
 		map.put("page", page);
 		return path + "doctor-list";
 	}
