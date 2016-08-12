@@ -59,11 +59,7 @@ public class CmsDoctorController {
 	public String formView(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
 		Long id = Long.parseLong(request.getParameter("id"));
 		Doctor d = doctorService.findById(id);
-		List<Doctor> doctors =  new LinkedList<>();
-		doctors.add(d);
-		List<DoctorVo> doctorVos = getDoctorVoList(doctors);
-		map.put("doctorVo", doctorVos.get(0));
-		map.put("tagType", 1);//查看或者修改标签页
+		map.put("doctor", d);
 		return path + "doctor-form";
 	}
 	/*

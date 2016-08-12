@@ -65,6 +65,7 @@ public class DoctorServiceImpl implements DoctorService {
 				criteria.andIsdelEqualTo(false);
 			}
 		}
+		criteria.andIsdelEqualTo(false);
 		page2Exam(page, doctorExample);
 		int total = doctorMapper.countByExample(doctorExample);
 		List<Doctor> list = doctorMapper.selectByExample(doctorExample);

@@ -7,12 +7,11 @@
 <%@include file="/WEB-INF/cms/common/head.jsp"%>
 <%@include file="/WEB-INF/cms/common/taglib.jsp"%>
 <jsp:include page="/WEB-INF/cms/common/themeHead.jsp"></jsp:include>
-<script type="text/javascript"
-	src="<%=basePath%>resources/js/jquery.validate.js"></script>
+<script type="text/javascript" src="<%=basePath%>resources/js/jquery.validate.js"></script>
 <script type="text/javascript">
-	/* function submitForm(){
-		$("#formAdd").submit();
-	} */
+$(function(){
+	
+});
 </script>
 <style type="text/css">
 .valerror{
@@ -124,87 +123,88 @@ color: #a94442;
 								</div>
 								<div class="panel-body">
 									<form id="formAdd" action="<%=basePath%>cms/doctor/modify" method="post" class="form-horizontal">
+										<input type="hidden" name="id" value="${doctor.id}">
 										<div class="form-group">
 											<label class="col-md-3 control-label">医生姓名</label>
 											<div class="col-md-9">
-												<input type="text" id="username" name="username" class="form-control" placeholder="Username">
+												<input type="text" id="username" name="username" class="form-control" value="${doctor.username}" placeholder="Username">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">英文名</label>
 											<div class="col-md-9">
-												<input type="text" id="englistName" name="englistName" class="form-control" placeholder="Englist Name">
+												<input type="text" id="englistName" name="englistName" class="form-control" value="${doctor.englishname}" placeholder="Englist Name">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">联系方式</label>
 											<div class="col-md-9">
-												<input type="text" id="telphone" name="telphone" class="form-control" placeholder="telphone">
+												<input type="text" id="telphone" name="telphone" class="form-control" value="${doctor.telphone}" placeholder="telphone">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">所在医院</label>
 											<div class="col-md-9">
-												<input type="text" id="hospital" name="hospital" class="form-control" placeholder="hospital">
+												<input type="text" id="hospital" name="hospital" class="form-control" value="${doctor.hospital}" placeholder="hospital">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">科室</label>
 											<div class="col-md-9">
-												<input type="text" id="department" name="department" class="form-control" placeholder="department">
+												<input type="text" id="department" name="department" class="form-control" value="${doctor.department}" placeholder="department">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">职务</label>
 											<div class="col-md-9">
-												<input type="text" id="role" name="role" class="form-control" placeholder="role">
+												<input type="text" id="role" name="role" class="form-control" value="${doctor.role}" placeholder="role">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">评分</label>
 											<div class="col-md-9">
-												<input type="text" id="score" name="score" class="form-control" placeholder="score">
+												<input type="text" id="score" name="score" class="form-control" value="${doctor.score}" placeholder="score">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">价格</label>
 											<div class="col-md-9">
-												<input type="text" id="price" name="price" class="form-control" placeholder="price">
+												<input type="text" id="price" name="price" class="form-control" value="${doctor.price}" placeholder="price">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">擅长</label>
 											<div class="col-md-9">
-												<input type="text" id="advantage" name="advantage" class="form-control" placeholder="advantage">
+												<input type="text" id="advantage" name="advantage" class="form-control" value="${doctor.advantage}" placeholder="advantage">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">教育背景</label>
 											<div class="col-md-9">
-												<input type="text" id="background" name="background" class="form-control" placeholder="background">
+												<input type="text" id="background" name="background" class="form-control" value="${doctor.background}" placeholder="background">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">个人荣誉</label>
 											<div class="col-md-9">
-												<input type="text" id="achievement" name="achievement" class="form-control" placeholder="achievement">
+												<input type="text" id="achievement" name="achievement" class="form-control" value="${doctor.achievement}" placeholder="achievement">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">从医经历</label>
 											<div class="col-md-9">
-												<input type="text" id="workingexp" name="workingexp" class="form-control" placeholder="workingexp">
+												<input type="text" id="workingexp" name="workingexp" class="form-control" value="${doctor.workingexp}" placeholder="workingexp">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">是否有个人诊所</label>
 											<div class="col-md-9">
-												<div class="radio-custom">													
-													<input type="radio" id="radio1" name="haspersonalclinic" value="1" checked>
+												<div class="radio-custom radio-inline">													
+													<input type="radio" id="Yes" name="haspersonalclinic" value="1" <c:if test='${doctor.haspersonalclinic == 1 || empty doctor.id }'>checked</c:if>>
 													<label for="Yes">Yes</label>
 												</div>
-												<div class="radio-custom">													
-													<input type="radio" id="radio2" name="haspersonalclinic" value="0"> 
+												<div class="radio-custom radio-inline">													
+													<input type="radio" id="No" name="haspersonalclinic" value="0" <c:if test='${doctor.haspersonalclinic == 0 }'>checked</c:if>> 
 													<label for="No">No</label>
 												</div>
 											</div>
@@ -212,7 +212,7 @@ color: #a94442;
 										<div class="form-group">
 											<label class="col-md-3 control-label" for="text-input">个人诊所信息</label>
 											<div class="col-md-9">
-												<input type="text" id="personalclinicinfo" name="personalclinicinfo" class="form-control" placeholder="personalclinicinfo">
+												<input type="text" id="personalclinicinfo" name="personalclinicinfo" class="form-control" value="${doctor.personalclinicinfo}" placeholder="personalclinicinfo">
 											</div>
 										</div>
 										<!-- <div class="form-group">
@@ -231,7 +231,7 @@ color: #a94442;
 										<div class="form-group">
 											<div class="col-md-5"></div>
 											<div class="col-md-7">
-												<button  type="submit" class="bk-margin-5 btn btn-default" >添加医生</button>
+												<button  type="submit" class="bk-margin-5 btn btn-default" ><c:if test="${empty doctor.id }">添加医生</c:if><c:if test="${!empty doctor.id }">修改医生</c:if></button>
 											</div>
 										</div>
 										<br>
@@ -245,77 +245,9 @@ color: #a94442;
 			</div>
 		</div><!--/container-->
 		<div class="clearfix"></div>
+		
 		<jsp:include page="/WEB-INF/cms/common/themeFoot.jsp"></jsp:include>
-<script type="text/javascript">
-$.validator.setDefaults( {
-	submitHandler: function () {
-		console.log("formAdd submit");
-		$("#formAdd").submit();
-	}
-} );
-$(function () {
-		$("#formAdd").validate({
-			rules: {
-				username: {
-					required: true
-				},
-				telphone: {
-					required: true,
-					number:true,
-					digits:true,
-					rangelength:[11,11]
-				},
-				hospital: {
-					required: true
-				},
-				department: {
-					required: true
-				},
-				role: {
-					required: true
-				},
-				score: {
-					required: true,
-					number:true
-				},
-				price: {
-					required: true,
-					number:true,
-					digits:true
-				},
-				advantage: {
-					required: true
-				},
-				background: {
-					required: true
-				},
-				achievement: {
-					required: true
-				},
-				workingexp: {
-					required: true
-				},
-				personalclinicinfo: {
-					required: true
-				}
-			},
-			messages: {
-				username: {
-					required: "Please enter a username",
-				}
-			},
-			errorElement: "em",
-			errorPlacement: function ( error, element ) {
-				// Add the `help-block` class to the error element
-				error.addClass( "valerror" );
-				if ( element.prop( "type" ) === "checkbox" ) {
-					error.insertAfter( element.parent( "label" ) );
-				} else {
-					error.insertAfter( element );
-				}
-			},
-		} );
-	})
-</script>
+		
+<script type="text/javascript" src="<%=basePath%>resources/js/form-validate.js"></script>
 </body>
 </html>
