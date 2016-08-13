@@ -215,6 +215,19 @@ color: #a94442;
 												<input type="text" id="personalclinicinfo" name="personalclinicinfo" class="form-control" value="${doctor.personalclinicinfo}" placeholder="personalclinicinfo">
 											</div>
 										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label" for="text-input">是否审核通过</label>
+											<div class="col-md-9">
+												<div class="radio-custom radio-inline">													
+													<input type="radio" id="Yes" name="status" value="1" <c:if test='${doctor.status == 1 || empty doctor.id }'>checked</c:if>>
+													<label for="Yes">Yes</label>
+												</div>
+												<div class="radio-custom radio-inline">													
+													<input type="radio" id="No" name="status" value="0" <c:if test='${doctor.status == 0 }'>checked</c:if>> 
+													<label for="No">No</label>
+												</div>
+											</div>
+										</div>
 										<!-- <div class="form-group">
 											<label class="col-md-3 control-label" for="email-input">Email Input</label>
 											<div class="col-md-9">

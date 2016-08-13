@@ -91,6 +91,7 @@ public class CmsDoctorController {
 		String workingexp = request.getParameter("workingexp");
 		String haspersonalclinic = request.getParameter("haspersonalclinic");
 		String personalclinicinfo = request.getParameter("personalclinicinfo");
+		String status = request.getParameter("status");
 		doctor.setUsername(username);
 		doctor.setEnglishname(englistName);
 		doctor.setTelphone(telphone);
@@ -105,6 +106,7 @@ public class CmsDoctorController {
 		doctor.setWorkingexp(workingexp);
 		doctor.setHaspersonalclinic(haspersonalclinic);
 		doctor.setPersonalclinicinfo(personalclinicinfo);
+		doctor.setStatus(status);
 		doctor.setIsdel(false);
 		String doctorid = request.getParameter("id");
 		if(StringUtils.isNotEmpty(doctorid)){

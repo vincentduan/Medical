@@ -11,17 +11,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-@RequestMapping(value = "/cms/system")
+@RequestMapping(value = "/cms")
 public class CmsIndexController {
 	private static Logger logger = Logger.getLogger(CmsIndexController.class);
 
 	/*
-	 * main.jsp
+	 * login.jsp
 	 */
-	@RequestMapping(value = "main", method = RequestMethod.GET)
-	public String menu(HttpServletRequest request,
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String login(HttpServletRequest request,
 			HttpServletResponse response, ModelMap map) {
-		return "main";
+		return "login";
+	}
+	
+	@RequestMapping(value="register",method = RequestMethod.GET)
+	public String regist(){
+		return "register";
 	}
 	
 

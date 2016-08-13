@@ -118,6 +118,7 @@
 													<th>科室</th>
 													<th>职务</th>
 													<th>用户评分</th>
+													<th>审核状态</th>
 													<th>操作</th>
 												</tr>
 											</thead>   
@@ -130,11 +131,21 @@
 														<td>${doctor.department }</td>
 														<td>${doctor.role }</td>
 														<td>${doctor.score }</td>
+														<td>${doctor.status }</td>
 														<td><a href="${ctx}/cms/doctor/formView?id=${doctor.id }">详情&nbsp;&nbsp;</a><a href="${ctx}/cms/doctor/formView?id=${doctor.id }">修改&nbsp;&nbsp;</a><a href="${ctx}/cms/doctor/delete?id=${doctor.id }">删除&nbsp;&nbsp;</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
 										</table>
+										<div class="bk-margin-5 btn-group">
+											<button type="button" class="btn btn-default">pre</button>
+											<button type="button" class="btn btn-primary">1</button>
+											<button type="button" class="btn btn-default">2</button>
+											<button type="button" class="btn btn-default">3</button>
+											<button type="button" class="btn btn-default">4</button>
+											<button type="button" class="btn btn-default">5</button>
+											<button type="button" class="btn btn-default">next</button>
+										</div>
 									</div>
 								</div>
 							</div>
