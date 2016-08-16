@@ -33,7 +33,7 @@ public class CmsIndexController {
 	}
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String dologin(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
+	public String doLogin(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		Doctor d = new Doctor();
@@ -50,6 +50,29 @@ public class CmsIndexController {
 	@RequestMapping(value="register",method = RequestMethod.GET)
 	public String regist(){
 		return "register";
+	}
+	@RequestMapping(value="register",method = RequestMethod.POST)
+	public String dRegist(HttpServletRequest request, HttpServletResponse response, ModelMap map){
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		String telphone = request.getParameter("telphone");
+		Doctor d = new Doctor();
+		d.setUsername(username);
+		Doctor doctor = doctorService.queryByCondiction(d);
+		Doctor d2 = new Doctor();
+		d2.setTelphone(telphone);
+		Doctor doctor2 = doctorService.queryByCondiction(d2);
+		if(doctor!=null || doctor2 != null){
+			map.addAttribute("error", "username or telphone already exist");
+			return "register";
+		}else{
+			Doctor d3 = new Doctor();
+			d3.setUsername(username);
+			d3.setTelphone(telphone);
+			d3.setPassword(password);
+			doctorService.save(d3);
+		}
+		return "redirect:/cms/login";
 	}
 	
 

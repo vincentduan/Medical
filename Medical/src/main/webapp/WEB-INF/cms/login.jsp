@@ -40,7 +40,7 @@
 									<div class="form-group">
 										<label>Password</label>									
 										<div class="input-group input-group-icon">
-											<input name="pwd" type="password" class="form-control bk-noradius" />
+											<input name="password" type="password" class="form-control bk-noradius" />
 											<span class="input-group-addon">
 												<span class="icon">
 													<i class="fa fa-lock" style="font-size: 20px;"></i>

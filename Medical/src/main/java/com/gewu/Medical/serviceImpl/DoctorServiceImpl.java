@@ -89,12 +89,22 @@ public class DoctorServiceImpl implements DoctorService {
 		}
 		DoctorExample example = new DoctorExample();
 		Criteria criteria = example.createCriteria();
-		if (doctor.getUsername()!= null&&doctor.getPassword()!=null) {
+		if(doctor.getUsername()!= null){
 			criteria.andUsernameEqualTo(doctor.getUsername());
+		}
+		if(doctor.getPassword()!=null){
 			criteria.andPasswordEqualTo(doctor.getPassword());
 		}
-
-		return doctorMapper.selectByExample(example).get(0);
+		if(doctor.getTelphone()!=null){
+			criteria.andTelphoneEqualTo(doctor.getTelphone());
+		}
+		List<Doctor> doctors = doctorMapper.selectByExample(example);
+		if(doctors.size()>0){
+			return doctorMapper.selectByExample(example).get(0);
+		}else{
+			return null;
+		}
+			
 	}
 
 }

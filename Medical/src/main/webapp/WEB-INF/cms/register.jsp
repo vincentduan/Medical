@@ -24,22 +24,22 @@
 								<h2 class="title text-uppercase"><i class="fa fa-user"></i> Register</h2>
 							</div>
 							<div class="panel-body">
-								<form>
+								<form action = "<%=basePath%>cms/register" method="post">
 									<div class="form-group">
 										<label>Name</label>
-										<input name="name" type="text" class="form-control" />
+										<input name="username" type="text" class="form-control" />
 									</div>
 
 									<div class="form-group">
-										<label>E-mail Address</label>
-										<input name="email" type="email" class="form-control" />
+										<label>telphone</label>
+										<input name="telphone" type="telphone" class="form-control" />
 									</div>
 
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6">
 												<label>Password</label>
-												<input name="pwd" type="password" class="form-control" />
+												<input name="password" type="password" class="form-control" />
 											</div>
 											<div class="col-sm-6">
 												<label>Password Confirmation</label>
@@ -47,7 +47,7 @@
 											</div>
 										</div>
 									</div>
-
+									<div style="color:red">${error }</div>
 									<div class="row">
 										<div class="col-sm-8">
 											<div class="checkbox-custom checkbox-default">
@@ -99,7 +99,7 @@
 		<script src="<%=basePath%>resources/theme/assets/js/core.min.js"></script>
 		
 		<!-- Pages JS -->
-		<script src="<%=basePath%>resources/theme/assets/js/pages/page-register.js"></script>
+		<%-- <script src="<%=basePath%>resources/theme/assets/js/pages/page-register.js"></script> --%>
 		
 		<!-- end: JavaScript-->
 </body>
