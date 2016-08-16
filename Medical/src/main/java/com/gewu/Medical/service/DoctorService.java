@@ -8,6 +8,8 @@ public interface DoctorService extends BaseService<Doctor> {
 	public List<Doctor> findDoctorsByDepartment(int departmentid);
 
 	public List<Doctor> findAllDoctors();
+
+	public Doctor queryByCondiction(Doctor d);
 	
 	
 

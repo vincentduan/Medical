@@ -82,5 +82,19 @@ public class DoctorServiceImpl implements DoctorService {
 			}
 		}
 	}
+	@Override
+	public Doctor queryByCondiction(Doctor doctor) {
+		if (doctor == null) {
+			return null;
+		}
+		DoctorExample example = new DoctorExample();
+		Criteria criteria = example.createCriteria();
+		if (doctor.getUsername()!= null&&doctor.getPassword()!=null) {
+			criteria.andUsernameEqualTo(doctor.getUsername());
+			criteria.andPasswordEqualTo(doctor.getPassword());
+		}
+
+		return doctorMapper.selectByExample(example).get(0);
+	}
 
 }

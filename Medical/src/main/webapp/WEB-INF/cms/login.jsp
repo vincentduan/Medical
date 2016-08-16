@@ -24,7 +24,7 @@
 								<h2 class="title"><i class="fa fa-user"></i> Login</h2>
 							</div>
 							<div class="panel-body">
-								<form action="index.html" method="post">
+								<form action="<%=basePath%>cms/login" method="post">
 									<div class="form-group">
 										<label>Username</label>
 										<div class="input-group input-group-icon">
