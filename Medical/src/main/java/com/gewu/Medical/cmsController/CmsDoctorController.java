@@ -66,8 +66,9 @@ public class CmsDoctorController {
 	 * 添加医生
 	 */
 	@RequestMapping(value = "add", method = RequestMethod.GET)
-	public String add(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("doctorVo") DoctorVo doctorVo,ModelMap map) {
-		map.put("tagType", 0);
+	public String add(HttpServletRequest request, HttpServletResponse response,ModelMap map) {
+		Doctor doctor = new Doctor();
+		map.put("doctor", doctor);
 		return path + "doctor-form";
 	}
 	
@@ -107,6 +108,7 @@ public class CmsDoctorController {
 		doctor.setHaspersonalclinic(haspersonalclinic);
 		doctor.setPersonalclinicinfo(personalclinicinfo);
 		doctor.setStatus(status);
+		doctor.setAccounttype("1");
 		doctor.setIsdel(false);
 		String doctorid = request.getParameter("id");
 		if(StringUtils.isNotEmpty(doctorid)){

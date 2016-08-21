@@ -44,7 +44,13 @@ public class CmsIndexController {
 			return "login";
 		}
 		request.getSession().setAttribute("doctor", doctor);
-		return "redirect:/cms/doctor/listView";
+		if(doctor.getAccounttype().equals("0")){
+			return "redirect:/cms/doctor/listView";
+		}
+		if(doctor.getAccounttype().equals("1")){
+			return "redirect:/cms/article/listView";
+		}
+		return "common/error-404";
 	}
 	
 	@RequestMapping(value="register",method = RequestMethod.GET)
@@ -70,10 +76,16 @@ public class CmsIndexController {
 			d3.setUsername(username);
 			d3.setTelphone(telphone);
 			d3.setPassword(password);
+			d3.setStatus("0");;
 			doctorService.save(d3);
 		}
 		return "redirect:/cms/login";
 	}
 	
+	@RequestMapping(value="logout",method = RequestMethod.GET)
+	public String logout(HttpServletRequest request, HttpServletResponse response){
+		request.getSession().invalidate();
+		return "redirect:/cms/login";
+	}
 
 }
