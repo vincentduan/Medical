@@ -35,31 +35,28 @@
 						<div class="col-lg-12">
 							<div class="panel">
 								<div class="panel-heading bk-bg-primary">
-									<h6><i class="fa fa-table red"></i><span class="break"></span>医生列表</h6>
+									<h6><i class="fa fa-table red"></i><span class="break"></span>文章列表</h6>
 								</div>
 								<div class="panel-body">
 									<div>	
 										<table class="table table-striped table-bordered bootstrap-datatable datatable">
 											<thead>
 												<tr>
-													<th>医生姓名</th>
-													<th>联系方式</th>
-													<th>所在医院</th>
-													<th>科室</th>
-													<th>职务</th>
-													<th>用户评分</th>
+													<th>文章标题</th>
+													<th>所属分类</th>
+													<th>发布时间</th>
 													<th>审核状态</th>
 													<th>操作</th>
 												</tr>
 											</thead>   
 											<tbody>								
-												<c:forEach items="${doctors}" var="doctor">
+												<c:forEach items="${articles}" var="article">
 													<tr>
-														<td>${doctor.username }</td>
-														<td>${doctor.telphone }</td>
-														<td>${doctor.hospital }</td>
-														<td>${doctor.department }</td>
-														<td>${doctor.role }</td>
+														<td>${article.title }</td>
+														<td>${article.category }</td>
+														<td>${article.hospital }</td>
+														<td>${article.department }</td>
+														<td>${article.role }</td>
 														<td>${doctor.score }</td>
 														<td><c:if test="${doctor.status == '1' }">已审核</c:if><c:if test="${doctor.status == '0' }">未审核</c:if></td>
 														<td><a href="${ctx}/cms/doctor/formView?id=${doctor.id }">详情&nbsp;&nbsp;</a><a href="${ctx}/cms/doctor/formView?id=${doctor.id }">修改&nbsp;&nbsp;</a><a href="${ctx}/cms/doctor/delete?id=${doctor.id }">删除&nbsp;&nbsp;</a></td>
