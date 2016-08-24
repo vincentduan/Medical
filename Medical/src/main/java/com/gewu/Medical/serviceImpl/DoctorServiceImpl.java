@@ -22,7 +22,6 @@ public class DoctorServiceImpl implements DoctorService {
 	public List<Doctor> findDoctorsByDepartment(int departmentid) {
 		// TODO Auto-generated method stub
 		DoctorExample doctorExample = new DoctorExample();
-		DoctorExample.Criteria criteria = doctorExample.createCriteria();
 		//criteria.andDepartmentEqualTo(departmentid);
 		List<Doctor> doctors = doctorMapper.selectByExample(doctorExample);
 		return doctors;
@@ -62,7 +61,6 @@ public class DoctorServiceImpl implements DoctorService {
 		if(d!=null){
 			if(d.getUsername()!=null){
 				criteria.andUsernameLike(d.getUsername());
-				criteria.andIsdelEqualTo(false);
 			}
 		}
 		criteria.andIsdelEqualTo(false);

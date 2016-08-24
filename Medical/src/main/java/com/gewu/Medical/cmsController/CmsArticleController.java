@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.gewu.Medical.model.Article;
 import com.gewu.Medical.model.Doctor;
+import com.gewu.Medical.service.ArticleService;
 import com.gewu.Medical.service.DepartmentService;
 import com.gewu.Medical.service.DoctorService;
 import com.gewu.Medical.utils.Page;
@@ -24,33 +26,36 @@ import com.gewu.Medical.vo.DoctorVo;
 
 
 @Controller
-@RequestMapping(value = "/cms/doctor")
+@RequestMapping(value = "/cms/article")
 public class CmsArticleController {
 	
 	@Autowired
 	private DoctorService doctorService;
 	@Autowired
+	private ArticleService articleService;
+	@Autowired
 	private DepartmentService departmentService;
+	
 	private static Logger logger = Logger.getLogger(CmsArticleController.class);
-	private String path = "doctor/";
+	
+	private String path = "article/";
 
 	/*
 	 * 医生列表
 	 */
 	@RequestMapping(value = "listView", method = RequestMethod.GET)
-	public String listView(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("doctor") Doctor doctor, ModelMap map) {
+	public String listView(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
 		Integer pageNo = Integer.parseInt(StringUtils.isNotBlank(request.getParameter("pageNo")) && StringUtils.isNumeric(request.getParameter("pageNo")) ? request.getParameter("pageNo")
 				: "1");
-		Page<Doctor> page = new Page<>();
+		Article article = new Article();
+		Page<Article> page = new Page<>();
 		page.setPageSize(50);
 		page.setPageNo(pageNo);
-		doctorService.queryByPage(page, doctor);
-		List<Doctor> doctors = page.getResult();
-		//List<DoctorVo> doctorVos = getDoctorVoList(doctors);
-		//map.put("doctorVos", doctorVos);
-		map.put("doctors", doctors);
+		articleService.queryByPage(page, article);
+		List<Article> articles = page.getResult();
+		map.put("articles", articles);
 		map.put("page", page);
-		return path + "doctor-list";
+		return path + "article-list";
 	}
 	/*
 	 * 修改(查看)医生信息页面
@@ -67,9 +72,9 @@ public class CmsArticleController {
 	 */
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String add(HttpServletRequest request, HttpServletResponse response,ModelMap map) {
-		Doctor doctor = new Doctor();
-		map.put("doctor", doctor);
-		return path + "doctor-form";
+		Article article = new Article();
+		map.put("article", article);
+		return path + "article-form";
 	}
 	
 	/*

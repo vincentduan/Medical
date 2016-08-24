@@ -13,9 +13,7 @@
 		<!-- Start: Content -->
 		<div class="container-fluid content">	
 			<div class="row">
-			
 				<jsp:include page="/WEB-INF/cms/common/sidebar.jsp"></jsp:include>
-		
 				<!-- Main Page -->
 				<div class="main ">
 					<!-- Page Header -->
@@ -23,11 +21,11 @@
 						<div class="pull-left">
 							<ol class="breadcrumb visible-sm visible-md visible-lg">								
 								<li><a href="index.html"><i class="icon fa fa-home"></i>Home</a></li>
-								<li class="active"><i class="fa fa-list-alt"></i>医生管理</li>
+								<li class="active"><i class="fa fa-list-alt"></i>文章管理</li>
 							</ol>						
 						</div>
 						<div class="pull-right">
-							<h2>Doctor</h2>
+							<h2>Article</h2>
 						</div>					
 					</div>
 					<!-- End Page Header -->								
@@ -54,12 +52,9 @@
 													<tr>
 														<td>${article.title }</td>
 														<td>${article.category }</td>
-														<td>${article.hospital }</td>
-														<td>${article.department }</td>
-														<td>${article.role }</td>
-														<td>${doctor.score }</td>
-														<td><c:if test="${doctor.status == '1' }">已审核</c:if><c:if test="${doctor.status == '0' }">未审核</c:if></td>
-														<td><a href="${ctx}/cms/doctor/formView?id=${doctor.id }">详情&nbsp;&nbsp;</a><a href="${ctx}/cms/doctor/formView?id=${doctor.id }">修改&nbsp;&nbsp;</a><a href="${ctx}/cms/doctor/delete?id=${doctor.id }">删除&nbsp;&nbsp;</a></td>
+														<td>${article.createtime }</td>
+														<td><c:if test="${article.status == '1' }">已审核</c:if><c:if test="${article.status == '0' }">未审核</c:if></td>
+														<td><a href="${ctx}/cms/doctor/formView?id=${article.id }">详情&nbsp;&nbsp;</a><a href="${ctx}/cms/doctor/formView?id=${article.id }">修改&nbsp;&nbsp;</a><a href="${ctx}/cms/doctor/delete?id=${article.id }">删除&nbsp;&nbsp;</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>

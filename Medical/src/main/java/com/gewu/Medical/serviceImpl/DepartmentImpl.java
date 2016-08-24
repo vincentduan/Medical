@@ -10,8 +10,6 @@ import com.gewu.Medical.dao.DepartmentMapper;
 import com.gewu.Medical.model.Department;
 import com.gewu.Medical.model.DepartmentExample;
 import com.gewu.Medical.model.DepartmentExample.Criteria;
-import com.gewu.Medical.model.Doctor;
-import com.gewu.Medical.model.DoctorExample;
 import com.gewu.Medical.service.DepartmentService;
 import com.gewu.Medical.utils.Page;
 

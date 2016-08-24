@@ -41,10 +41,12 @@
 								<li><a href="<%=basePath%>cms/doctor/add"><span class="text"> 添加医生</span></a></li>
 							</ul>
 						</li>
-						</c:if>
-					<li class="nav-parent"><a> <i class="fa fa-file-text" aria-hidden="true"></i><span>文章管理</span> </a>
+					</c:if>
+					<li class="nav-parent <c:if test="${sessionScope.doctor.accounttype != '0' }">active opened nav-expanded</c:if>">
+						<a> <i class="fa fa-file-text" aria-hidden="true"></i><span>文章管理</span> </a>
 						<ul class="nav nav-children">
-							<li><a href="page-activity.html"><span class="text">文章列表</span></a></li>
+							<li><a href="<%=basePath%>cms/article/listView"><span class="text">文章列表</span></a></li>
+							<li><a href="<%=basePath%>cms/article/add"><span class="text">文章添加</span></a></li>
 						</ul>
 					</li>
 				</ul>
