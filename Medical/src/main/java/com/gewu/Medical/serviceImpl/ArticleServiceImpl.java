@@ -48,6 +48,7 @@ public class ArticleServiceImpl implements ArticleService {
 		if(t!=null){
 			if(t.getDoctorid()!=null){
 				criteria.andDoctoridEqualTo(t.getDoctorid());
+				criteria.andIsdelEqualTo(false);
 			}
 		}
 		page2Exam(page, articleExample);

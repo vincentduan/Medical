@@ -21,6 +21,8 @@ public class Article {
 
     private String doctorName;
 
+    private Boolean isdel;
+
     private String document;
 
     public Integer getId() {
@@ -93,6 +95,14 @@ public class Article {
 
     public void setDoctorName(String doctorName) {
         this.doctorName = doctorName == null ? null : doctorName.trim();
+    }
+
+    public Boolean getIsdel() {
+        return isdel;
+    }
+
+    public void setIsdel(Boolean isdel) {
+        this.isdel = isdel;
     }
 
     public String getDocument() {

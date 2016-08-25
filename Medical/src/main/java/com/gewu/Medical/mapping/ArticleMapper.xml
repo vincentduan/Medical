@@ -11,6 +11,7 @@
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
     <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
     <result column="doctor_name" property="doctorName" jdbcType="VARCHAR" />
+    <result column="isDel" property="isdel" jdbcType="BIT" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.gewu.Medical.model.Article" extends="BaseResultMap" >
     <result column="document" property="document" jdbcType="LONGVARCHAR" />
@@ -74,7 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, doctorid, title, category, status, info, createtime, updatetime, doctor_name
+    id, doctorid, title, category, status, info, createtime, updatetime, doctor_name, 
+    isDel
   </sql>
   <sql id="Blob_Column_List" >
     document
@@ -136,11 +138,11 @@
     insert into article (id, doctorid, title, 
       category, status, info, 
       createtime, updatetime, doctor_name, 
-      document)
+      isDel, document)
     values (#{id,jdbcType=INTEGER}, #{doctorid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
       #{category,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, 
       #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{doctorName,jdbcType=VARCHAR}, 
-      #{document,jdbcType=LONGVARCHAR})
+      #{isdel,jdbcType=BIT}, #{document,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.gewu.Medical.model.Article" >
     insert into article
@@ -171,6 +173,9 @@
       </if>
       <if test="doctorName != null" >
         doctor_name,
+      </if>
+      <if test="isdel != null" >
+        isDel,
       </if>
       <if test="document != null" >
         document,
@@ -203,6 +208,9 @@
       </if>
       <if test="doctorName != null" >
         #{doctorName,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        #{isdel,jdbcType=BIT},
       </if>
       <if test="document != null" >
         #{document,jdbcType=LONGVARCHAR},
@@ -245,6 +253,9 @@
       <if test="record.doctorName != null" >
         doctor_name = #{record.doctorName,jdbcType=VARCHAR},
       </if>
+      <if test="record.isdel != null" >
+        isDel = #{record.isdel,jdbcType=BIT},
+      </if>
       <if test="record.document != null" >
         document = #{record.document,jdbcType=LONGVARCHAR},
       </if>
@@ -264,6 +275,7 @@
       createtime = #{record.createtime,jdbcType=TIMESTAMP},
       updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
       doctor_name = #{record.doctorName,jdbcType=VARCHAR},
+      isDel = #{record.isdel,jdbcType=BIT},
       document = #{record.document,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -279,7 +291,8 @@
       info = #{record.info,jdbcType=VARCHAR},
       createtime = #{record.createtime,jdbcType=TIMESTAMP},
       updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
-      doctor_name = #{record.doctorName,jdbcType=VARCHAR}
+      doctor_name = #{record.doctorName,jdbcType=VARCHAR},
+      isDel = #{record.isdel,jdbcType=BIT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -311,6 +324,9 @@
       <if test="doctorName != null" >
         doctor_name = #{doctorName,jdbcType=VARCHAR},
       </if>
+      <if test="isdel != null" >
+        isDel = #{isdel,jdbcType=BIT},
+      </if>
       <if test="document != null" >
         document = #{document,jdbcType=LONGVARCHAR},
       </if>
@@ -327,6 +343,7 @@
       createtime = #{createtime,jdbcType=TIMESTAMP},
       updatetime = #{updatetime,jdbcType=TIMESTAMP},
       doctor_name = #{doctorName,jdbcType=VARCHAR},
+      isDel = #{isdel,jdbcType=BIT},
       document = #{document,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -339,7 +356,8 @@
       info = #{info,jdbcType=VARCHAR},
       createtime = #{createtime,jdbcType=TIMESTAMP},
       updatetime = #{updatetime,jdbcType=TIMESTAMP},
-      doctor_name = #{doctorName,jdbcType=VARCHAR}
+      doctor_name = #{doctorName,jdbcType=VARCHAR},
+      isDel = #{isdel,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
