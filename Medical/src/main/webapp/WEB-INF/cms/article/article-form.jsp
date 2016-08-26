@@ -69,7 +69,7 @@ color: #a94442;
 										<div class="form-group">
 											<div class="col-md-1"></div>
 											<div class="col-md-11">
-												<script id="content" name="content" type="text/plain">这里写你的内容</script>
+												<script id="content" name="content" type="text/plain">${article.document}</script>
 											</div>
 										</div>
 										<div class="form-group">

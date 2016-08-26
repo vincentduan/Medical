@@ -60,14 +60,14 @@ public class CmsArticleController {
 		return path + "article-list";
 	}
 	/*
-	 * 修改(查看)医生信息页面
+	 * 修改(查看)文章信息页面
 	 */
 	@RequestMapping(value = "formView", method = RequestMethod.GET)
 	public String formView(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
 		Long id = Long.parseLong(request.getParameter("id"));
-		Doctor d = doctorService.findById(id);
-		map.put("doctor", d);
-		return path + "doctor-form";
+		Article article = articleService.findById(id);
+		map.put("article", article);
+		return path + "article-form";
 	}
 	/*
 	 * 添加医生
@@ -122,42 +122,13 @@ public class CmsArticleController {
 	 */
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request, HttpServletResponse response) {
-		String doctorid = request.getParameter("id");
-		if(StringUtils.isNotEmpty(doctorid)){
-			Long id = Long.parseLong(doctorid);
-			Doctor d = doctorService.findById(id);
-			d.setIsdel(true);
-			doctorService.update(d);
+		String id = request.getParameter("id");
+		if(StringUtils.isNotEmpty(id)){
+			Long idTemp = Long.parseLong(id);
+			Article a = articleService.findById(idTemp);
+			a.setIsdel(true);
+			articleService.update(a);
 		}
-		return "redirect:/cms/doctor/listView";
+		return "redirect:/cms/article/listView";
 	}
-	private List<DoctorVo> getDoctorVoList(List<Doctor> doctors) {
-		List<DoctorVo> doctorVos = new LinkedList<>();
-		DoctorVo doctorVo = null;
-		for(Doctor doctor:doctors){
-			doctorVo = new DoctorVo();
-			doctorVo.setId(doctor.getId());
-			doctorVo.setUsername(doctor.getUsername());
-			doctorVo.setTelphone(doctor.getTelphone());
-			doctorVo.setHospital(doctor.getHospital());
-			//doctorVo.setDepartmentInfo(doctor.getDepartment());
-			doctorVo.setRole(doctor.getRole());
-			doctorVo.setScore(doctor.getScore());
-			doctorVo.setEnglishname(doctor.getEnglishname());
-			doctorVo.setAchievement(doctor.getAchievement());
-			doctorVo.setAdvantage(doctor.getAdvantage());
-			doctorVo.setBackground(doctor.getBackground());
-			doctorVo.setBrief(doctor.getBrief());
-			doctorVo.setFansnum(doctor.getFansnum());
-			doctorVo.setWorkingexp(doctor.getWorkingexp());
-			doctorVo.setPersonalclinicinfo(doctor.getPersonalclinicinfo());
-			doctorVo.setPrice(doctor.getPrice());
-			doctorVos.add(doctorVo);
-		}
-		return doctorVos;
-	}
-	
-	
-	
-
 }

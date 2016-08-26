@@ -48,9 +48,9 @@ public class ArticleServiceImpl implements ArticleService {
 		if(t!=null){
 			if(t.getDoctorid()!=null){
 				criteria.andDoctoridEqualTo(t.getDoctorid());
-				criteria.andIsdelEqualTo(false);
 			}
 		}
+		criteria.andIsdelEqualTo(false);
 		page2Exam(page, articleExample);
 		int total = articleMapper.countByExample(articleExample);
 		List<Article> list = articleMapper.selectByExample(articleExample);
