@@ -52,7 +52,7 @@ color: #a94442;
 									<h6><i class="fa fa-indent red"></i>添加文章</h6>							
 								</div>
 								<div class="panel-body">
-									<form id="formAdd" action="<%=basePath%>cms/article/modify" method="post" class="form-horizontal">
+									<form id="formAdd" action="<%=basePath%>cms/article/modify" method="post" class="form-horizontal form-bordered">
 										<input type="hidden" name="id" value="${article.id}">
 										<div class="form-group">
 											<label class="col-md-3 control-label">医生姓名</label>
@@ -67,31 +67,8 @@ color: #a94442;
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-md-3 control-label" for="text-input">是否审核通过</label>
-											<div class="col-md-9">
-												<div class="radio-custom radio-inline">													
-													<input type="radio" id="Yes" name="status" value="1" <c:if test='${doctor.status == 1 || empty doctor.id }'>checked</c:if>>
-													<label for="Yes">Yes</label>
-												</div>
-												<div class="radio-custom radio-inline">													
-													<input type="radio" id="No" name="status" value="0" <c:if test='${doctor.status == 0 }'>checked</c:if>> 
-													<label for="No">No</label>
-												</div>
-											</div>
+											<script id="content" name="content" type="text/plain"></script>
 										</div>
-										<!-- <div class="form-group">
-											<label class="col-md-3 control-label" for="email-input">Email Input</label>
-											<div class="col-md-9">
-												<input type="email" id="email-input" name="email-input" class="form-control" placeholder="Email address">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-md-3 control-label" for="password-input">Password</label>
-											<div class="col-md-9">
-												<input type="password" id="password-input" name="password-input" class="form-control" placeholder="Password">
-												<span class="help-block">Please enter a complex password</span>
-											</div>
-										</div> -->
 										<div class="form-group">
 											<div class="col-md-5"></div>
 											<div class="col-md-7">
@@ -105,13 +82,32 @@ color: #a94442;
 						</div>
 					</div>
 				</div>
-				<!-- End Main Page -->			
+				<!-- End Main Page -->
 			</div>
 		</div><!--/container-->
 		<div class="clearfix"></div>
 		
-		<jsp:include page="/WEB-INF/cms/common/themeFoot.jsp"></jsp:include>
-		
+<jsp:include page="/WEB-INF/cms/common/themeFoot.jsp"></jsp:include>	
 <script type="text/javascript" src="<%=basePath%>resources/js/form-validate.js"></script>
+<!-- 实例化编辑器 -->
+<script src="<%=basePath%>resources/ueditor/ueditor.config.js" charset="utf-8" type="text/javascript"></script>
+<script src="<%=basePath%>resources/ueditor/ueditor.all.js" type="text/javascript" charset="utf-8" > </script>
+<script type="text/javascript" charset="utf-8" src="<%=basePath%>resources/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+	var ue = UE.getEditor("content",{
+	    toolbars: [
+	               ['fullscreen', 'source', '|', 'undo', 'redo', '|',
+	                'bold', 'italic', 'underline', 'fontborder', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', '|',
+	                'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+	                'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+	                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|',
+	                'link', 'unlink','|',
+	                'simpleupload','|',
+	                'preview']
+	           ],
+	           autoHeightEnabled: true,
+	           autoFloatEnabled: true
+	});
+</script>
 </body>
 </html>

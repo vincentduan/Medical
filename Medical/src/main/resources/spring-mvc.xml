@@ -14,19 +14,30 @@
 
 	<!-- 自动扫描 -->
 	<context:component-scan base-package="com.gewu.Medical" />
+	
 	<mvc:annotation-driven />
+	
 	<context:annotation-config />
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		p:prefix="/WEB-INF/cms/" p:suffix=".jsp" />
-
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/cms/" p:suffix=".jsp" />
+	
+	<!-- 定义受环境影响易变的变量 -->
+	<!-- <bean class="com.gewu.Medical.utils.PropertyPlaceHolder">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				标准配置
+                <value>classpath:/common.properties</value>
+			</list>
+		</property>
+	</bean> -->
+	
 	<!-- 上传文件 -->
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize">
 			<value>104857600</value>
 		</property>
