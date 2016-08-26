@@ -53,26 +53,29 @@ color: #a94442;
 								</div>
 								<div class="panel-body">
 									<form id="formAdd" action="<%=basePath%>cms/article/modify" method="post" class="form-horizontal form-bordered">
-										<input type="hidden" name="id" value="${article.id}">
+										<input type="hidden" id="id" name="id" value="${article.id}">
 										<div class="form-group">
-											<label class="col-md-3 control-label">医生姓名</label>
-											<div class="col-md-9">
-												<input type="text" id="username" name="username" class="form-control" value="${doctor.username}" placeholder="Username">
+											<label class="col-md-2 control-label">文章标题</label>
+											<div class="col-md-10">
+												<input type="text" id="title" name="title" class="form-control" value="${article.title }" placeholder="title">
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-md-3 control-label" for="text-input">个人诊所信息</label>
-											<div class="col-md-9">
-												<input type="text" id="personalclinicinfo" name="personalclinicinfo" class="form-control" value="${doctor.personalclinicinfo}" placeholder="personalclinicinfo">
+											<label class="col-md-2 control-label" for="text-input">文章分类</label>
+											<div class="col-md-10">
+												<input type="text" id="category" name="category" class="form-control" value="${article.category}" placeholder="category">
 											</div>
 										</div>
 										<div class="form-group">
-											<script id="content" name="content" type="text/plain"></script>
+											<div class="col-md-1"></div>
+											<div class="col-md-11">
+												<script id="content" name="content" type="text/plain">这里写你的内容</script>
+											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-md-5"></div>
 											<div class="col-md-7">
-												<button  type="submit" class="bk-margin-5 btn btn-default" ><c:if test="${empty article.id }">添加文章</c:if><c:if test="${!empty article.id }">修改文章</c:if></button>
+												<button onclick="submit()" class="bk-margin-5 btn btn-default" ><c:if test="${empty article.id }">添加文章</c:if><c:if test="${!empty article.id }">修改文章</c:if></button>
 											</div>
 										</div>
 										<br>
@@ -108,6 +111,19 @@ color: #a94442;
 	           autoHeightEnabled: true,
 	           autoFloatEnabled: true
 	});
+	function submit() {
+        var content = ue.getContent();
+        var id = $("#id").val();
+        var title = $("#title").val();
+        var category = $("#category").val();
+        $.ajax({
+        	  type: "POST",
+        	  url: "<%=basePath%>cms/article/modify",
+        	  data: {id:id,title:title,category:category,content:content},
+        	  success: success,
+        	  dataType: dataType
+        	});
+    }
 </script>
 </body>
 </html>

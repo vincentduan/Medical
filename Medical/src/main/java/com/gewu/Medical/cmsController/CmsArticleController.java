@@ -1,6 +1,8 @@
 package com.gewu.Medical.cmsController;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -78,54 +80,35 @@ public class CmsArticleController {
 	}
 	
 	/*
-	 * 添加或修改医生实现
+	 * 添加或修改文章实现
 	 */
 	@RequestMapping(value = "modify", method = RequestMethod.POST)
-	public String modify(HttpServletRequest request, HttpServletResponse response) {
-		Doctor doctor = new Doctor();
-		String username = request.getParameter("username");
-		String englistName = request.getParameter("englistName");
-		String telphone = request.getParameter("telphone");
-		String hospital = request.getParameter("hospital");
-		String department = request.getParameter("department");
-		String role = request.getParameter("role");
-		String score = request.getParameter("score");
-		String price = request.getParameter("price");
-		String advantage = request.getParameter("advantage");
-		String background = request.getParameter("background");
-		String achievement = request.getParameter("achievement");
-		String workingexp = request.getParameter("workingexp");
-		String haspersonalclinic = request.getParameter("haspersonalclinic");
-		String personalclinicinfo = request.getParameter("personalclinicinfo");
-		String status = request.getParameter("status");
-		doctor.setUsername(username);
-		doctor.setEnglishname(englistName);
-		doctor.setTelphone(telphone);
-		doctor.setHospital(hospital);
-		doctor.setDepartment(department);
-		doctor.setRole(role);
-		doctor.setScore(new BigDecimal(score));
-		doctor.setPrice(Integer.parseInt(price));
-		doctor.setAdvantage(advantage);
-		doctor.setAchievement(achievement);
-		doctor.setBackground(background);
-		doctor.setWorkingexp(workingexp);
-		doctor.setHaspersonalclinic(haspersonalclinic);
-		doctor.setPersonalclinicinfo(personalclinicinfo);
-		doctor.setStatus(status);
-		doctor.setAccounttype("1");
-		doctor.setIsdel(false);
-		String doctorid = request.getParameter("id");
-		if(StringUtils.isNotEmpty(doctorid)){
-			doctor.setId(Integer.parseInt(doctorid));
-			doctorService.update(doctor);
+	public String modify(HttpServletRequest request) {
+		Doctor doctor = (Doctor) request.getSession().getAttribute("doctor");
+		Integer doctorid = doctor.getId();
+		String id = request.getParameter("id");
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		String category = request.getParameter("category");
+		Article article = new Article();
+		article.setTitle(title);
+		article.setDoctorid(doctorid);
+		article.setDoctorName(doctor.getUsername());
+		article.setCategory(category);
+		article.setDocument(content);
+		article.setStatus("0");
+		Timestamp ts = new Timestamp(System.currentTimeMillis());
+		article.setCreatetime(ts);
+		if(StringUtils.isNotEmpty(id+"")){
+			article.setId(Integer.parseInt(id));
+			articleService.update(article);
 		}else{
-			doctorService.save(doctor);
+			articleService.save(article);
 		}
-		return "redirect:/cms/doctor/listView";
+		return "redirect:/cms/article/listView";
 	}
 	/*
-	 * 医生查询
+	 * 文章查询
 	 */
 	@RequestMapping(value = "view", method = RequestMethod.GET)
 	public String view(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("doctor") Doctor doctor, ModelMap map) {
