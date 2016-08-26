@@ -72,6 +72,21 @@ color: #a94442;
 												<script id="content" name="content" type="text/plain">${article.document}</script>
 											</div>
 										</div>
+										<c:if test="${sessionScope.doctor.accounttype == '0' }">
+											<div class="form-group">
+												<label class="col-md-3 control-label" for="text-input">是否审核通过</label>
+												<div class="col-md-9">
+													<div class="radio-custom radio-inline">													
+														<input type="radio" id="Yes" name="status" value="1" <c:if test='${article.status == 1 }'>checked</c:if>>
+														<label for="Yes">Yes</label>
+													</div>
+													<div class="radio-custom radio-inline">													
+														<input type="radio" id="No" name="status" value="0" <c:if test='${article.status == 0 }'>checked</c:if>> 
+														<label for="No">No</label>
+													</div>
+												</div>
+											</div>
+										</c:if>
 										<div class="form-group">
 											<div class="col-md-5"></div>
 											<div class="col-md-7">
