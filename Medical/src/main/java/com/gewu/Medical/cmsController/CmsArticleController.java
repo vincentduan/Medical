@@ -97,6 +97,10 @@ public class CmsArticleController {
 		article.setCategory(category);
 		article.setDocument(content);
 		article.setStatus("0");
+		if(doctor.getAccounttype().equals("0")&&StringUtils.isNotEmpty(request.getParameter("status"))){
+			article.setStatus(request.getParameter("status"));
+		}
+		article.setIsdel(false);
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
 		article.setCreatetime(ts);
 		if(StringUtils.isNotEmpty(id+"")){

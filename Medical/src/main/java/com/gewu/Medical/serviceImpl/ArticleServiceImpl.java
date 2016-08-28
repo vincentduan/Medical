@@ -33,7 +33,7 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public int update(Article t) {
-		return articleMapper.updateByPrimaryKey(t);
+		return articleMapper.updateByPrimaryKeyWithBLOBs(t);
 	}
 
 	@Override
