@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.gewu.Medical.dao.ArticleMapper;
 import com.gewu.Medical.model.Article;
 import com.gewu.Medical.model.ArticleExample;
+import com.gewu.Medical.model.Doctor;
+import com.gewu.Medical.model.DoctorExample;
 import com.gewu.Medical.model.ArticleExample.Criteria;
 import com.gewu.Medical.service.ArticleService;
 import com.gewu.Medical.utils.Page;
@@ -87,8 +89,9 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public List<Article> findAllArticles() {
-		// TODO Auto-generated method stub
-		return null;
+		ArticleExample articleExample = new ArticleExample();
+		List<Article> articles = articleMapper.selectByExample(articleExample);
+		return articles;
 	}
 
 	@Override

@@ -52,7 +52,14 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
 			<mvc:exclude-mapping path="/resources/**"/> 
-			<bean id="loginInterceptor" class="com.gewu.Medical.intercepter.LoginInterceptor" />
+			<bean id="loginInterceptor" class="com.gewu.Medical.intercepter.LoginInterceptor">
+				<property name="uncheckUrls"> 
+                     <list> 
+                        <value>/doctor/findAllDoctors</value>
+                        <value>/article/findAllArticles</value>
+                     </list> 
+               </property> 
+			</bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 	<import resource="spring-mybatis.xml" />
