@@ -57,6 +57,8 @@
                      <list> 
                         <value>/doctor/findAllDoctors</value>
                         <value>/article/findAllArticles</value>
+                        <value>/index/login</value>
+                        <value>/index/register</value>
                      </list> 
                </property> 
 			</bean>

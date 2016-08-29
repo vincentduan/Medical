@@ -98,7 +98,7 @@ public class DoctorServiceImpl implements DoctorService {
 		}
 		List<Doctor> doctors = doctorMapper.selectByExample(example);
 		if(doctors.size()>0){
-			return doctorMapper.selectByExample(example).get(0);
+			return doctors.get(0);
 		}else{
 			return null;
 		}
