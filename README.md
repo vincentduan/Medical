@@ -36,4 +36,6 @@ Medical
 成功：{"user":{"id":null,"username":"vin","password":"111","telphone":"15812345677","isVip":null,"accounttype":null,"balance":null,"isrealname":null,"status":null,"createtime":null,"updatetime":null,"role":null,"email":null,"brief":null,"info":null,"gender":null,"birthday":null,"isdel":null},"status":"103","message":"success"}
 失败：
 {"user":null,"status":"104","message":"username or telphone have already exist"}
+10.获得所有医生http://101.200.233.227:8080/Medical/doctor/findAllDoctors
+11.获得所有文章http://101.200.233.227:8080/Medical/article/findAllArticles
 
