@@ -23,6 +23,7 @@ import com.gewu.Medical.vo.UserVo;
 @Controller
 @RequestMapping(value = "/index")
 public class IndexController {
+	
 	private static Logger logger = Logger.getLogger(IndexController.class);
 	
 	@Autowired
@@ -43,8 +44,8 @@ public class IndexController {
 	public List<String> menu(HttpServletRequest request,
 			HttpServletResponse response, ModelMap map) {
 		List<String> guide_pic = new LinkedList<>();
-		guide_pic.add("http://localhost:8080/Medical/resources/image/guide_pic1.jpg");
-		guide_pic.add("http://localhost:8080/Medical/resources/image/guide_pic2.jpg");
+		guide_pic.add("http://101.200.233.227:8080/Medical/resources/image/guide_pic1.jpg");
+		guide_pic.add("http://101.200.233.227:8080/Medical/resources/image/guide_pic2.jpg");
 		return guide_pic;
 	}
 	

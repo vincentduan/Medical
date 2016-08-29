@@ -59,6 +59,7 @@
                         <value>/article/findAllArticles</value>
                         <value>/index/login</value>
                         <value>/index/register</value>
+                        <value>/index/guidePic</value>
                      </list> 
                </property> 
 			</bean>
