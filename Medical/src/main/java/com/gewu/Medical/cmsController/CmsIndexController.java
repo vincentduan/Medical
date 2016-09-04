@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +37,9 @@ public class CmsIndexController {
 	public String doLogin(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		if(!StringUtils.isNotEmpty(password)){
+			return "common/error-404";
+		}
 		Doctor d = new Doctor();
 		d.setUsername(username);
 		d.setPassword(password);
