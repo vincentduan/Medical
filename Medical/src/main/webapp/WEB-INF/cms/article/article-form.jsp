@@ -73,6 +73,12 @@ color: #a94442;
 											</div>
 										</div>
 										<div class="form-group">
+											<label class="col-md-2 control-label" for="text-input">文章概要</label>
+											<div class="col-md-10">
+												<input type="text" id="summary" name="summary" class="form-control" value="${article.summary}" placeholder="summary">
+											</div>
+										</div>
+										<div class="form-group">
 											<div class="col-md-1"></div>
 											<div class="col-md-11">
 												<script id="content" name="content" type="text/plain">${article.document}</script>

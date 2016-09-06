@@ -87,6 +87,7 @@ public class CmsArticleController {
 		String content = request.getParameter("content");
 		String categoryParent = request.getParameter("categoryParent");
 		String categoryChild = request.getParameter("categoryChild");
+		String summary = request.getParameter("summary");
 		Article article = new Article();
 		article.setTitle(title);
 		article.setDoctorid(doctorid);
@@ -94,6 +95,7 @@ public class CmsArticleController {
 		article.setCategoryParent(Integer.parseInt(categoryParent));
 		article.setCategoryChild(Integer.parseInt(categoryChild));
 		article.setDocument(content);
+		article.setSummary(summary);
 		article.setStatus("0");
 		if(doctor.getAccounttype().equals("0")&&StringUtils.isNotEmpty(request.getParameter("status"))){
 			article.setStatus(request.getParameter("status"));
@@ -120,7 +122,7 @@ public class CmsArticleController {
 		return path + "doctor-form";
 	}
 	/*
-	 * 删除医生
+	 * 删除文章
 	 */
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request, HttpServletResponse response) {
