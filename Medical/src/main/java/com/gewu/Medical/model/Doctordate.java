@@ -13,7 +13,13 @@ public class Doctordate {
 
     private Date orderdate;
 
+    private Date createtime;
+
+    private Date updatetime;
+
     private String info;
+
+    private Boolean isdel;
 
     public Integer getId() {
         return id;
@@ -55,11 +61,35 @@ public class Doctordate {
         this.orderdate = orderdate;
     }
 
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
+
+    public Date getUpdatetime() {
+        return updatetime;
+    }
+
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
+    }
+
     public String getInfo() {
         return info;
     }
 
     public void setInfo(String info) {
         this.info = info == null ? null : info.trim();
+    }
+
+    public Boolean getIsdel() {
+        return isdel;
+    }
+
+    public void setIsdel(Boolean isdel) {
+        this.isdel = isdel;
     }
 }

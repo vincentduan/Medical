@@ -7,6 +7,10 @@ public class Userfollow {
 
     private Integer doctorid;
 
+    private String info;
+
+    private Boolean isdel;
+
     public Integer getId() {
         return id;
     }
@@ -29,5 +33,21 @@ public class Userfollow {
 
     public void setDoctorid(Integer doctorid) {
         this.doctorid = doctorid;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info == null ? null : info.trim();
+    }
+
+    public Boolean getIsdel() {
+        return isdel;
+    }
+
+    public void setIsdel(Boolean isdel) {
+        this.isdel = isdel;
     }
 }

@@ -7,7 +7,10 @@
     <result column="userid" property="userid" jdbcType="INTEGER" />
     <result column="orderid" property="orderid" jdbcType="INTEGER" />
     <result column="orderdate" property="orderdate" jdbcType="TIMESTAMP" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
     <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="isDel" property="isdel" jdbcType="BIT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, doctorid, userid, orderid, orderdate, info
+    id, doctorid, userid, orderid, orderdate, createtime, updatetime, info, isDel
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.gewu.Medical.model.DoctordateExample" >
     select
@@ -106,10 +109,12 @@
   </delete>
   <insert id="insert" parameterType="com.gewu.Medical.model.Doctordate" >
     insert into doctordate (id, doctorid, userid, 
-      orderid, orderdate, info
+      orderid, orderdate, createtime, 
+      updatetime, info, isDel
       )
     values (#{id,jdbcType=INTEGER}, #{doctorid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, 
-      #{orderid,jdbcType=INTEGER}, #{orderdate,jdbcType=TIMESTAMP}, #{info,jdbcType=VARCHAR}
+      #{orderid,jdbcType=INTEGER}, #{orderdate,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{info,jdbcType=VARCHAR}, #{isdel,jdbcType=BIT}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.gewu.Medical.model.Doctordate" >
@@ -130,8 +135,17 @@
       <if test="orderdate != null" >
         orderdate,
       </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
       <if test="info != null" >
         info,
+      </if>
+      <if test="isdel != null" >
+        isDel,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -150,8 +164,17 @@
       <if test="orderdate != null" >
         #{orderdate,jdbcType=TIMESTAMP},
       </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
       <if test="info != null" >
         #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        #{isdel,jdbcType=BIT},
       </if>
     </trim>
   </insert>
@@ -179,8 +202,17 @@
       <if test="record.orderdate != null" >
         orderdate = #{record.orderdate,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatetime != null" >
+        updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
       <if test="record.info != null" >
         info = #{record.info,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isdel != null" >
+        isDel = #{record.isdel,jdbcType=BIT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -194,7 +226,10 @@
       userid = #{record.userid,jdbcType=INTEGER},
       orderid = #{record.orderid,jdbcType=INTEGER},
       orderdate = #{record.orderdate,jdbcType=TIMESTAMP},
-      info = #{record.info,jdbcType=VARCHAR}
+      createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
+      info = #{record.info,jdbcType=VARCHAR},
+      isDel = #{record.isdel,jdbcType=BIT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -214,8 +249,17 @@
       <if test="orderdate != null" >
         orderdate = #{orderdate,jdbcType=TIMESTAMP},
       </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
       <if test="info != null" >
         info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        isDel = #{isdel,jdbcType=BIT},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -226,7 +270,10 @@
       userid = #{userid,jdbcType=INTEGER},
       orderid = #{orderid,jdbcType=INTEGER},
       orderdate = #{orderdate,jdbcType=TIMESTAMP},
-      info = #{info,jdbcType=VARCHAR}
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      info = #{info,jdbcType=VARCHAR},
+      isDel = #{isdel,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

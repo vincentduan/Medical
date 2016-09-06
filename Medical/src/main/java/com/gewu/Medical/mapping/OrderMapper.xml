@@ -10,12 +10,12 @@
     <result column="symptom" property="symptom" jdbcType="VARCHAR" />
     <result column="totalMoney" property="totalmoney" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="VARCHAR" />
-    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
-    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
     <result column="evaluate" property="evaluate" jdbcType="VARCHAR" />
     <result column="level" property="level" jdbcType="INTEGER" />
-    <result column="isDel" property="isdel" jdbcType="BIT" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
     <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="isDel" property="isdel" jdbcType="BIT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -76,8 +76,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, userid, doctorid, hospital, department, symptom, totalMoney, status, createTime, 
-    updateTime, evaluate, level, isDel, info
+    id, userid, doctorid, hospital, department, symptom, totalMoney, status, evaluate, 
+    level, createTime, updateTime, info, isDel
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.gewu.Medical.model.OrderExample" >
     select
@@ -116,14 +116,14 @@
   <insert id="insert" parameterType="com.gewu.Medical.model.Order" >
     insert into order (id, userid, doctorid, 
       hospital, department, symptom, 
-      totalMoney, status, createTime, 
-      updateTime, evaluate, level, 
-      isDel, info)
+      totalMoney, status, evaluate, 
+      level, createTime, updateTime, 
+      info, isDel)
     values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{doctorid,jdbcType=INTEGER}, 
       #{hospital,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{symptom,jdbcType=VARCHAR}, 
-      #{totalmoney,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{updatetime,jdbcType=TIMESTAMP}, #{evaluate,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, 
-      #{isdel,jdbcType=BIT}, #{info,jdbcType=VARCHAR})
+      #{totalmoney,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{evaluate,jdbcType=VARCHAR}, 
+      #{level,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{info,jdbcType=VARCHAR}, #{isdel,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="com.gewu.Medical.model.Order" >
     insert into order
@@ -152,23 +152,23 @@
       <if test="status != null" >
         status,
       </if>
-      <if test="createtime != null" >
-        createTime,
-      </if>
-      <if test="updatetime != null" >
-        updateTime,
-      </if>
       <if test="evaluate != null" >
         evaluate,
       </if>
       <if test="level != null" >
         level,
       </if>
-      <if test="isdel != null" >
-        isDel,
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
       </if>
       <if test="info != null" >
         info,
+      </if>
+      <if test="isdel != null" >
+        isDel,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -196,23 +196,23 @@
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
       </if>
-      <if test="createtime != null" >
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatetime != null" >
-        #{updatetime,jdbcType=TIMESTAMP},
-      </if>
       <if test="evaluate != null" >
         #{evaluate,jdbcType=VARCHAR},
       </if>
       <if test="level != null" >
         #{level,jdbcType=INTEGER},
       </if>
-      <if test="isdel != null" >
-        #{isdel,jdbcType=BIT},
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
       </if>
       <if test="info != null" >
         #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        #{isdel,jdbcType=BIT},
       </if>
     </trim>
   </insert>
@@ -249,23 +249,23 @@
       <if test="record.status != null" >
         status = #{record.status,jdbcType=VARCHAR},
       </if>
-      <if test="record.createtime != null" >
-        createTime = #{record.createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.updatetime != null" >
-        updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
-      </if>
       <if test="record.evaluate != null" >
         evaluate = #{record.evaluate,jdbcType=VARCHAR},
       </if>
       <if test="record.level != null" >
         level = #{record.level,jdbcType=INTEGER},
       </if>
-      <if test="record.isdel != null" >
-        isDel = #{record.isdel,jdbcType=BIT},
+      <if test="record.createtime != null" >
+        createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatetime != null" >
+        updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.info != null" >
         info = #{record.info,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isdel != null" >
+        isDel = #{record.isdel,jdbcType=BIT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -282,12 +282,12 @@
       symptom = #{record.symptom,jdbcType=VARCHAR},
       totalMoney = #{record.totalmoney,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=VARCHAR},
-      createTime = #{record.createtime,jdbcType=TIMESTAMP},
-      updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
       evaluate = #{record.evaluate,jdbcType=VARCHAR},
       level = #{record.level,jdbcType=INTEGER},
-      isDel = #{record.isdel,jdbcType=BIT},
-      info = #{record.info,jdbcType=VARCHAR}
+      createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+      info = #{record.info,jdbcType=VARCHAR},
+      isDel = #{record.isdel,jdbcType=BIT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -316,23 +316,23 @@
       <if test="status != null" >
         status = #{status,jdbcType=VARCHAR},
       </if>
-      <if test="createtime != null" >
-        createTime = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatetime != null" >
-        updateTime = #{updatetime,jdbcType=TIMESTAMP},
-      </if>
       <if test="evaluate != null" >
         evaluate = #{evaluate,jdbcType=VARCHAR},
       </if>
       <if test="level != null" >
         level = #{level,jdbcType=INTEGER},
       </if>
-      <if test="isdel != null" >
-        isDel = #{isdel,jdbcType=BIT},
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
       </if>
       <if test="info != null" >
         info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        isDel = #{isdel,jdbcType=BIT},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -346,12 +346,12 @@
       symptom = #{symptom,jdbcType=VARCHAR},
       totalMoney = #{totalmoney,jdbcType=VARCHAR},
       status = #{status,jdbcType=VARCHAR},
-      createTime = #{createtime,jdbcType=TIMESTAMP},
-      updateTime = #{updatetime,jdbcType=TIMESTAMP},
       evaluate = #{evaluate,jdbcType=VARCHAR},
       level = #{level,jdbcType=INTEGER},
-      isDel = #{isdel,jdbcType=BIT},
-      info = #{info,jdbcType=VARCHAR}
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      info = #{info,jdbcType=VARCHAR},
+      isDel = #{isdel,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

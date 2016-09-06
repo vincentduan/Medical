@@ -303,6 +303,136 @@ public class UserfollowExample {
             addCriterion("doctorid not between", value1, value2, "doctorid");
             return (Criteria) this;
         }
+
+        public Criteria andInfoIsNull() {
+            addCriterion("info is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoIsNotNull() {
+            addCriterion("info is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoEqualTo(String value) {
+            addCriterion("info =", value, "info");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoNotEqualTo(String value) {
+            addCriterion("info <>", value, "info");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoGreaterThan(String value) {
+            addCriterion("info >", value, "info");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoGreaterThanOrEqualTo(String value) {
+            addCriterion("info >=", value, "info");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoLessThan(String value) {
+            addCriterion("info <", value, "info");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoLessThanOrEqualTo(String value) {
+            addCriterion("info <=", value, "info");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoLike(String value) {
+            addCriterion("info like", value, "info");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoNotLike(String value) {
+            addCriterion("info not like", value, "info");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoIn(List<String> values) {
+            addCriterion("info in", values, "info");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoNotIn(List<String> values) {
+            addCriterion("info not in", values, "info");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoBetween(String value1, String value2) {
+            addCriterion("info between", value1, value2, "info");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfoNotBetween(String value1, String value2) {
+            addCriterion("info not between", value1, value2, "info");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdelIsNull() {
+            addCriterion("isDel is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdelIsNotNull() {
+            addCriterion("isDel is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdelEqualTo(Boolean value) {
+            addCriterion("isDel =", value, "isdel");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdelNotEqualTo(Boolean value) {
+            addCriterion("isDel <>", value, "isdel");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdelGreaterThan(Boolean value) {
+            addCriterion("isDel >", value, "isdel");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdelGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("isDel >=", value, "isdel");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdelLessThan(Boolean value) {
+            addCriterion("isDel <", value, "isdel");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdelLessThanOrEqualTo(Boolean value) {
+            addCriterion("isDel <=", value, "isdel");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdelIn(List<Boolean> values) {
+            addCriterion("isDel in", values, "isdel");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdelNotIn(List<Boolean> values) {
+            addCriterion("isDel not in", values, "isdel");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdelBetween(Boolean value1, Boolean value2) {
+            addCriterion("isDel between", value1, value2, "isdel");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdelNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("isDel not between", value1, value2, "isdel");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

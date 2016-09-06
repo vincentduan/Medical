@@ -21,10 +21,6 @@ public class User {
 
     private String status;
 
-    private Date createtime;
-
-    private Date updatetime;
-
     private Integer role;
 
     private String email;
@@ -36,6 +32,10 @@ public class User {
     private Boolean gender;
 
     private Date birthday;
+
+    private Date createtime;
+
+    private Date updatetime;
 
     private Boolean isdel;
 
@@ -111,22 +111,6 @@ public class User {
         this.status = status == null ? null : status.trim();
     }
 
-    public Date getCreatetime() {
-        return createtime;
-    }
-
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
-    }
-
-    public Date getUpdatetime() {
-        return updatetime;
-    }
-
-    public void setUpdatetime(Date updatetime) {
-        this.updatetime = updatetime;
-    }
-
     public Integer getRole() {
         return role;
     }
@@ -173,6 +157,22 @@ public class User {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
+
+    public Date getUpdatetime() {
+        return updatetime;
+    }
+
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
     }
 
     public Boolean getIsdel() {

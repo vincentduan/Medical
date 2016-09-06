@@ -5,6 +5,8 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="userid" property="userid" jdbcType="INTEGER" />
     <result column="doctorid" property="doctorid" jdbcType="INTEGER" />
+    <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="isDel" property="isdel" jdbcType="BIT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, userid, doctorid
+    id, userid, doctorid, info, isDel
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.gewu.Medical.model.UserfollowExample" >
     select
@@ -102,10 +104,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.gewu.Medical.model.Userfollow" >
-    insert into userfollow (id, userid, doctorid
-      )
-    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{doctorid,jdbcType=INTEGER}
-      )
+    insert into userfollow (id, userid, doctorid, 
+      info, isDel)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{doctorid,jdbcType=INTEGER}, 
+      #{info,jdbcType=VARCHAR}, #{isdel,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="com.gewu.Medical.model.Userfollow" >
     insert into userfollow
@@ -119,6 +121,12 @@
       <if test="doctorid != null" >
         doctorid,
       </if>
+      <if test="info != null" >
+        info,
+      </if>
+      <if test="isdel != null" >
+        isDel,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -129,6 +137,12 @@
       </if>
       <if test="doctorid != null" >
         #{doctorid,jdbcType=INTEGER},
+      </if>
+      <if test="info != null" >
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        #{isdel,jdbcType=BIT},
       </if>
     </trim>
   </insert>
@@ -150,6 +164,12 @@
       <if test="record.doctorid != null" >
         doctorid = #{record.doctorid,jdbcType=INTEGER},
       </if>
+      <if test="record.info != null" >
+        info = #{record.info,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isdel != null" >
+        isDel = #{record.isdel,jdbcType=BIT},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -159,7 +179,9 @@
     update userfollow
     set id = #{record.id,jdbcType=INTEGER},
       userid = #{record.userid,jdbcType=INTEGER},
-      doctorid = #{record.doctorid,jdbcType=INTEGER}
+      doctorid = #{record.doctorid,jdbcType=INTEGER},
+      info = #{record.info,jdbcType=VARCHAR},
+      isDel = #{record.isdel,jdbcType=BIT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -173,13 +195,21 @@
       <if test="doctorid != null" >
         doctorid = #{doctorid,jdbcType=INTEGER},
       </if>
+      <if test="info != null" >
+        info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        isDel = #{isdel,jdbcType=BIT},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.gewu.Medical.model.Userfollow" >
     update userfollow
     set userid = #{userid,jdbcType=INTEGER},
-      doctorid = #{doctorid,jdbcType=INTEGER}
+      doctorid = #{doctorid,jdbcType=INTEGER},
+      info = #{info,jdbcType=VARCHAR},
+      isDel = #{isdel,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

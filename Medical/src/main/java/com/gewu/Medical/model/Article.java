@@ -7,9 +7,13 @@ public class Article {
 
     private Integer doctorid;
 
+    private String doctorName;
+
     private String title;
 
-    private String category;
+    private String categoryParent;
+
+    private String categoryChild;
 
     private String status;
 
@@ -18,8 +22,6 @@ public class Article {
     private Date createtime;
 
     private Date updatetime;
-
-    private String doctorName;
 
     private Boolean isdel;
 
@@ -41,6 +43,14 @@ public class Article {
         this.doctorid = doctorid;
     }
 
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName == null ? null : doctorName.trim();
+    }
+
     public String getTitle() {
         return title;
     }
@@ -49,12 +59,20 @@ public class Article {
         this.title = title == null ? null : title.trim();
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategoryParent() {
+        return categoryParent;
     }
 
-    public void setCategory(String category) {
-        this.category = category == null ? null : category.trim();
+    public void setCategoryParent(String categoryParent) {
+        this.categoryParent = categoryParent == null ? null : categoryParent.trim();
+    }
+
+    public String getCategoryChild() {
+        return categoryChild;
+    }
+
+    public void setCategoryChild(String categoryChild) {
+        this.categoryChild = categoryChild == null ? null : categoryChild.trim();
     }
 
     public String getStatus() {
@@ -87,14 +105,6 @@ public class Article {
 
     public void setUpdatetime(Date updatetime) {
         this.updatetime = updatetime;
-    }
-
-    public String getDoctorName() {
-        return doctorName;
-    }
-
-    public void setDoctorName(String doctorName) {
-        this.doctorName = doctorName == null ? null : doctorName.trim();
     }
 
     public Boolean getIsdel() {

@@ -19,17 +19,17 @@ public class Order {
 
     private String status;
 
-    private Date createtime;
-
-    private Date updatetime;
-
     private String evaluate;
 
     private Integer level;
 
-    private Boolean isdel;
+    private Date createtime;
+
+    private Date updatetime;
 
     private String info;
+
+    private Boolean isdel;
 
     public Integer getId() {
         return id;
@@ -95,22 +95,6 @@ public class Order {
         this.status = status == null ? null : status.trim();
     }
 
-    public Date getCreatetime() {
-        return createtime;
-    }
-
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
-    }
-
-    public Date getUpdatetime() {
-        return updatetime;
-    }
-
-    public void setUpdatetime(Date updatetime) {
-        this.updatetime = updatetime;
-    }
-
     public String getEvaluate() {
         return evaluate;
     }
@@ -127,12 +111,20 @@ public class Order {
         this.level = level;
     }
 
-    public Boolean getIsdel() {
-        return isdel;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setIsdel(Boolean isdel) {
-        this.isdel = isdel;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
+
+    public Date getUpdatetime() {
+        return updatetime;
+    }
+
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
     }
 
     public String getInfo() {
@@ -141,5 +133,13 @@ public class Order {
 
     public void setInfo(String info) {
         this.info = info == null ? null : info.trim();
+    }
+
+    public Boolean getIsdel() {
+        return isdel;
+    }
+
+    public void setIsdel(Boolean isdel) {
+        this.isdel = isdel;
     }
 }

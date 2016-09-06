@@ -19,6 +19,8 @@ public class Serviceseting {
 
     private String info;
 
+    private Boolean isdel;
+
     public Integer getId() {
         return id;
     }
@@ -89,5 +91,13 @@ public class Serviceseting {
 
     public void setInfo(String info) {
         this.info = info == null ? null : info.trim();
+    }
+
+    public Boolean getIsdel() {
+        return isdel;
+    }
+
+    public void setIsdel(Boolean isdel) {
+        this.isdel = isdel;
     }
 }
