@@ -94,7 +94,7 @@ public class CmsArticleController {
 		article.setTitle(title);
 		article.setDoctorid(doctorid);
 		article.setDoctorName(doctor.getUsername());
-		article.setCategory(category);
+		article.setCategoryParent(category);
 		article.setDocument(content);
 		article.setStatus("0");
 		if(doctor.getAccounttype().equals("0")&&StringUtils.isNotEmpty(request.getParameter("status"))){

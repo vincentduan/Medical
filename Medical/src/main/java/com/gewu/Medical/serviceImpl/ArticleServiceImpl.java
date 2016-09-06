@@ -80,8 +80,8 @@ public class ArticleServiceImpl implements ArticleService {
 		if(article.getDoctorid() != null){
 			criteria.andDoctoridEqualTo(article.getDoctorid());
 		}
-		if(StringUtils.isNotBlank(article.getCategory())){
-			criteria.andCategoryEqualTo(article.getCategory());
+		if(StringUtils.isNotBlank(article.getCategoryParent())){
+			criteria.andCategoryParentEqualTo(article.getCategoryParent());
 		}
 		List<Article> articles = articleMapper.selectByExample(articleExample);
 		return articles;
