@@ -21,7 +21,7 @@ color: #a94442;
 </head>
 <body>
 		<jsp:include page="/WEB-INF/cms/common/navbar.jsp"></jsp:include>
-		<div class="copyrights">医生后台管理系统</a></div>
+		<div class="copyrights">医生后台管理系统</div>
 		<!-- Start: Content -->
 		<div class="container-fluid content">	
 			<div class="row">
