@@ -51,7 +51,7 @@
 												<c:forEach items="${articles}" var="article">
 													<tr>
 														<td>${article.title }</td>
-														<td>${article.category }</td>
+														<td>${article.categoryParent }</td>
 														<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${article.createtime }" /></td>
 														<td><c:if test="${article.status == '1' }">已审核</c:if><c:if test="${article.status == '0' }">未审核</c:if></td>
 														<td><a href="${ctx}/cms/article/formView?id=${article.id }">详情&nbsp;&nbsp;</a><a href="${ctx}/cms/article/formView?id=${article.id }">修改&nbsp;&nbsp;</a><a href="${ctx}/cms/article/delete?id=${article.id }">删除&nbsp;&nbsp;</a></td>
