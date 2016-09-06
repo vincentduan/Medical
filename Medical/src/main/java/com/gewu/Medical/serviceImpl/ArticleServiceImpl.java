@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 import com.gewu.Medical.dao.ArticleMapper;
 import com.gewu.Medical.model.Article;
 import com.gewu.Medical.model.ArticleExample;
-import com.gewu.Medical.model.Doctor;
-import com.gewu.Medical.model.DoctorExample;
 import com.gewu.Medical.model.ArticleExample.Criteria;
 import com.gewu.Medical.service.ArticleService;
 import com.gewu.Medical.utils.Page;
@@ -80,8 +78,11 @@ public class ArticleServiceImpl implements ArticleService {
 		if(article.getDoctorid() != null){
 			criteria.andDoctoridEqualTo(article.getDoctorid());
 		}
-		if(StringUtils.isNotBlank(article.getCategoryParent())){
+		if(StringUtils.isNotBlank(article.getCategoryParent()+"")){
 			criteria.andCategoryParentEqualTo(article.getCategoryParent());
+		}
+		if(StringUtils.isNotBlank(article.getCategoryChild()+"")){
+			criteria.andCategoryChildEqualTo(article.getCategoryChild());
 		}
 		List<Article> articles = articleMapper.selectByExample(articleExample);
 		return articles;

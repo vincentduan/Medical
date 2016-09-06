@@ -1,9 +1,6 @@
 package com.gewu.Medical.cmsController;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +21,6 @@ import com.gewu.Medical.service.ArticleService;
 import com.gewu.Medical.service.DepartmentService;
 import com.gewu.Medical.service.DoctorService;
 import com.gewu.Medical.utils.Page;
-import com.gewu.Medical.vo.DoctorVo;
 
 
 @Controller
@@ -43,7 +39,7 @@ public class CmsArticleController {
 	private String path = "article/";
 
 	/*
-	 * 医生列表
+	 * 文章列表
 	 */
 	@RequestMapping(value = "listView", method = RequestMethod.GET)
 	public String listView(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
@@ -70,7 +66,7 @@ public class CmsArticleController {
 		return path + "article-form";
 	}
 	/*
-	 * 添加医生
+	 * 添加文章
 	 */
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String add(HttpServletRequest request, HttpServletResponse response,ModelMap map) {
@@ -89,12 +85,14 @@ public class CmsArticleController {
 		String id = request.getParameter("id");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		String category = request.getParameter("category");
+		String categoryParent = request.getParameter("categoryParent");
+		String categoryChild = request.getParameter("categoryChild");
 		Article article = new Article();
 		article.setTitle(title);
 		article.setDoctorid(doctorid);
 		article.setDoctorName(doctor.getUsername());
-		article.setCategoryParent(category);
+		article.setCategoryParent(Integer.parseInt(categoryParent));
+		article.setCategoryChild(Integer.parseInt(categoryChild));
 		article.setDocument(content);
 		article.setStatus("0");
 		if(doctor.getAccounttype().equals("0")&&StringUtils.isNotEmpty(request.getParameter("status"))){

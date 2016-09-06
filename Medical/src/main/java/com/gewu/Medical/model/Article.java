@@ -11,9 +11,9 @@ public class Article {
 
     private String title;
 
-    private String categoryParent;
+    private Integer categoryParent;
 
-    private String categoryChild;
+    private Integer categoryChild;
 
     private String status;
 
@@ -59,20 +59,20 @@ public class Article {
         this.title = title == null ? null : title.trim();
     }
 
-    public String getCategoryParent() {
+    public Integer getCategoryParent() {
         return categoryParent;
     }
 
-    public void setCategoryParent(String categoryParent) {
-        this.categoryParent = categoryParent == null ? null : categoryParent.trim();
+    public void setCategoryParent(Integer categoryParent) {
+        this.categoryParent = categoryParent;
     }
 
-    public String getCategoryChild() {
+    public Integer getCategoryChild() {
         return categoryChild;
     }
 
-    public void setCategoryChild(String categoryChild) {
-        this.categoryChild = categoryChild == null ? null : categoryChild.trim();
+    public void setCategoryChild(Integer categoryChild) {
+        this.categoryChild = categoryChild;
     }
 
     public String getStatus() {

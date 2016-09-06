@@ -6,8 +6,8 @@
     <result column="doctorid" property="doctorid" jdbcType="INTEGER" />
     <result column="doctor_name" property="doctorName" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="category_parent" property="categoryParent" jdbcType="VARCHAR" />
-    <result column="category_child" property="categoryChild" jdbcType="VARCHAR" />
+    <result column="category_parent" property="categoryParent" jdbcType="INTEGER" />
+    <result column="category_child" property="categoryChild" jdbcType="INTEGER" />
     <result column="status" property="status" jdbcType="VARCHAR" />
     <result column="info" property="info" jdbcType="VARCHAR" />
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
@@ -142,7 +142,7 @@
       updatetime, isDel, document
       )
     values (#{id,jdbcType=INTEGER}, #{doctorid,jdbcType=INTEGER}, #{doctorName,jdbcType=VARCHAR}, 
-      #{title,jdbcType=VARCHAR}, #{categoryParent,jdbcType=VARCHAR}, #{categoryChild,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{categoryParent,jdbcType=INTEGER}, #{categoryChild,jdbcType=INTEGER}, 
       #{status,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
       #{updatetime,jdbcType=TIMESTAMP}, #{isdel,jdbcType=BIT}, #{document,jdbcType=LONGVARCHAR}
       )
@@ -201,10 +201,10 @@
         #{title,jdbcType=VARCHAR},
       </if>
       <if test="categoryParent != null" >
-        #{categoryParent,jdbcType=VARCHAR},
+        #{categoryParent,jdbcType=INTEGER},
       </if>
       <if test="categoryChild != null" >
-        #{categoryChild,jdbcType=VARCHAR},
+        #{categoryChild,jdbcType=INTEGER},
       </if>
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
@@ -248,10 +248,10 @@
         title = #{record.title,jdbcType=VARCHAR},
       </if>
       <if test="record.categoryParent != null" >
-        category_parent = #{record.categoryParent,jdbcType=VARCHAR},
+        category_parent = #{record.categoryParent,jdbcType=INTEGER},
       </if>
       <if test="record.categoryChild != null" >
-        category_child = #{record.categoryChild,jdbcType=VARCHAR},
+        category_child = #{record.categoryChild,jdbcType=INTEGER},
       </if>
       <if test="record.status != null" >
         status = #{record.status,jdbcType=VARCHAR},
@@ -282,8 +282,8 @@
       doctorid = #{record.doctorid,jdbcType=INTEGER},
       doctor_name = #{record.doctorName,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=VARCHAR},
-      category_parent = #{record.categoryParent,jdbcType=VARCHAR},
-      category_child = #{record.categoryChild,jdbcType=VARCHAR},
+      category_parent = #{record.categoryParent,jdbcType=INTEGER},
+      category_child = #{record.categoryChild,jdbcType=INTEGER},
       status = #{record.status,jdbcType=VARCHAR},
       info = #{record.info,jdbcType=VARCHAR},
       createtime = #{record.createtime,jdbcType=TIMESTAMP},
@@ -300,8 +300,8 @@
       doctorid = #{record.doctorid,jdbcType=INTEGER},
       doctor_name = #{record.doctorName,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=VARCHAR},
-      category_parent = #{record.categoryParent,jdbcType=VARCHAR},
-      category_child = #{record.categoryChild,jdbcType=VARCHAR},
+      category_parent = #{record.categoryParent,jdbcType=INTEGER},
+      category_child = #{record.categoryChild,jdbcType=INTEGER},
       status = #{record.status,jdbcType=VARCHAR},
       info = #{record.info,jdbcType=VARCHAR},
       createtime = #{record.createtime,jdbcType=TIMESTAMP},
@@ -324,10 +324,10 @@
         title = #{title,jdbcType=VARCHAR},
       </if>
       <if test="categoryParent != null" >
-        category_parent = #{categoryParent,jdbcType=VARCHAR},
+        category_parent = #{categoryParent,jdbcType=INTEGER},
       </if>
       <if test="categoryChild != null" >
-        category_child = #{categoryChild,jdbcType=VARCHAR},
+        category_child = #{categoryChild,jdbcType=INTEGER},
       </if>
       <if test="status != null" >
         status = #{status,jdbcType=VARCHAR},
@@ -355,8 +355,8 @@
     set doctorid = #{doctorid,jdbcType=INTEGER},
       doctor_name = #{doctorName,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
-      category_parent = #{categoryParent,jdbcType=VARCHAR},
-      category_child = #{categoryChild,jdbcType=VARCHAR},
+      category_parent = #{categoryParent,jdbcType=INTEGER},
+      category_child = #{categoryChild,jdbcType=INTEGER},
       status = #{status,jdbcType=VARCHAR},
       info = #{info,jdbcType=VARCHAR},
       createtime = #{createtime,jdbcType=TIMESTAMP},
@@ -370,8 +370,8 @@
     set doctorid = #{doctorid,jdbcType=INTEGER},
       doctor_name = #{doctorName,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
-      category_parent = #{categoryParent,jdbcType=VARCHAR},
-      category_child = #{categoryChild,jdbcType=VARCHAR},
+      category_parent = #{categoryParent,jdbcType=INTEGER},
+      category_child = #{categoryChild,jdbcType=INTEGER},
       status = #{status,jdbcType=VARCHAR},
       info = #{info,jdbcType=VARCHAR},
       createtime = #{createtime,jdbcType=TIMESTAMP},
