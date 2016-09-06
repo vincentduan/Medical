@@ -10,6 +10,7 @@
     <result column="category_child" property="categoryChild" jdbcType="INTEGER" />
     <result column="status" property="status" jdbcType="VARCHAR" />
     <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="summary" property="summary" jdbcType="VARCHAR" />
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
     <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
     <result column="isDel" property="isdel" jdbcType="BIT" />
@@ -77,7 +78,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, doctorid, doctor_name, title, category_parent, category_child, status, info, 
-    createtime, updatetime, isDel
+    summary, createtime, updatetime, isDel
   </sql>
   <sql id="Blob_Column_List" >
     document
@@ -138,14 +139,14 @@
   <insert id="insert" parameterType="com.gewu.Medical.model.Article" >
     insert into article (id, doctorid, doctor_name, 
       title, category_parent, category_child, 
-      status, info, createtime, 
-      updatetime, isDel, document
-      )
+      status, info, summary, 
+      createtime, updatetime, isDel, 
+      document)
     values (#{id,jdbcType=INTEGER}, #{doctorid,jdbcType=INTEGER}, #{doctorName,jdbcType=VARCHAR}, 
       #{title,jdbcType=VARCHAR}, #{categoryParent,jdbcType=INTEGER}, #{categoryChild,jdbcType=INTEGER}, 
-      #{status,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{updatetime,jdbcType=TIMESTAMP}, #{isdel,jdbcType=BIT}, #{document,jdbcType=LONGVARCHAR}
-      )
+      #{status,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{isdel,jdbcType=BIT}, 
+      #{document,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.gewu.Medical.model.Article" >
     insert into article
@@ -173,6 +174,9 @@
       </if>
       <if test="info != null" >
         info,
+      </if>
+      <if test="summary != null" >
+        summary,
       </if>
       <if test="createtime != null" >
         createtime,
@@ -211,6 +215,9 @@
       </if>
       <if test="info != null" >
         #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        #{summary,jdbcType=VARCHAR},
       </if>
       <if test="createtime != null" >
         #{createtime,jdbcType=TIMESTAMP},
@@ -259,6 +266,9 @@
       <if test="record.info != null" >
         info = #{record.info,jdbcType=VARCHAR},
       </if>
+      <if test="record.summary != null" >
+        summary = #{record.summary,jdbcType=VARCHAR},
+      </if>
       <if test="record.createtime != null" >
         createtime = #{record.createtime,jdbcType=TIMESTAMP},
       </if>
@@ -286,6 +296,7 @@
       category_child = #{record.categoryChild,jdbcType=INTEGER},
       status = #{record.status,jdbcType=VARCHAR},
       info = #{record.info,jdbcType=VARCHAR},
+      summary = #{record.summary,jdbcType=VARCHAR},
       createtime = #{record.createtime,jdbcType=TIMESTAMP},
       updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
       isDel = #{record.isdel,jdbcType=BIT},
@@ -304,6 +315,7 @@
       category_child = #{record.categoryChild,jdbcType=INTEGER},
       status = #{record.status,jdbcType=VARCHAR},
       info = #{record.info,jdbcType=VARCHAR},
+      summary = #{record.summary,jdbcType=VARCHAR},
       createtime = #{record.createtime,jdbcType=TIMESTAMP},
       updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
       isDel = #{record.isdel,jdbcType=BIT}
@@ -335,6 +347,9 @@
       <if test="info != null" >
         info = #{info,jdbcType=VARCHAR},
       </if>
+      <if test="summary != null" >
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
       <if test="createtime != null" >
         createtime = #{createtime,jdbcType=TIMESTAMP},
       </if>
@@ -359,6 +374,7 @@
       category_child = #{categoryChild,jdbcType=INTEGER},
       status = #{status,jdbcType=VARCHAR},
       info = #{info,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
       createtime = #{createtime,jdbcType=TIMESTAMP},
       updatetime = #{updatetime,jdbcType=TIMESTAMP},
       isDel = #{isdel,jdbcType=BIT},
@@ -374,6 +390,7 @@
       category_child = #{categoryChild,jdbcType=INTEGER},
       status = #{status,jdbcType=VARCHAR},
       info = #{info,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
       createtime = #{createtime,jdbcType=TIMESTAMP},
       updatetime = #{updatetime,jdbcType=TIMESTAMP},
       isDel = #{isdel,jdbcType=BIT}

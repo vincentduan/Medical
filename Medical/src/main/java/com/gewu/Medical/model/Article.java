@@ -19,6 +19,8 @@ public class Article {
 
     private String info;
 
+    private String summary;
+
     private Date createtime;
 
     private Date updatetime;
@@ -89,6 +91,14 @@ public class Article {
 
     public void setInfo(String info) {
         this.info = info == null ? null : info.trim();
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary == null ? null : summary.trim();
     }
 
     public Date getCreatetime() {
