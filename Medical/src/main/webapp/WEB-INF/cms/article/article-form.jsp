@@ -63,13 +63,13 @@ color: #a94442;
 										<div class="form-group">
 											<label class="col-md-2 control-label" for="text-input">文章大分类</label>
 											<div class="col-md-10">
-												<input type="text" id="category" name="categoryParent" class="form-control" value="${article.categoryParent}" placeholder="category">
+												<input type="text" id="categoryParent" name="categoryParent" class="form-control" value="${article.categoryParent}" placeholder="categoryParent">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-md-2 control-label" for="text-input">文章小分类</label>
 											<div class="col-md-10">
-												<input type="text" id="category" name="categoryChild" class="form-control" value="${article.categoryChild}" placeholder="category">
+												<input type="text" id="categoryChild" name="categoryChild" class="form-control" value="${article.categoryChild}" placeholder="categoryChild">
 											</div>
 										</div>
 										<div class="form-group">
