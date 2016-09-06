@@ -73,6 +73,7 @@ public class IndexController {
 			userVo.setUser(u);
 			userVo.setStatus("100");
 			userVo.setMessage("success");
+			request.getSession().setAttribute("user", user);
 		}
 		else{
 			userVo.setUser(null);

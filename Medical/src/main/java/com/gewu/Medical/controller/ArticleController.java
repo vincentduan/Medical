@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gewu.Medical.model.Article;
 import com.gewu.Medical.model.Doctor;
+import com.gewu.Medical.model.User;
 import com.gewu.Medical.service.ArticleService;
 import com.gewu.Medical.service.DoctorService;
+import com.gewu.Medical.vo.ArticleVo;
 
 @Controller
 @RequestMapping(value = "/article")
@@ -25,6 +27,8 @@ public class ArticleController {
 	
 	@Autowired
 	private ArticleService articleService;
+	@Autowired
+	private DoctorService doctorService;
 	
 	@RequestMapping(value = "findAllArticles", method = RequestMethod.GET)
 	@ResponseBody
@@ -32,6 +36,24 @@ public class ArticleController {
 			HttpServletResponse response) {
 		List<Article> articles = articleService.findAllArticles();
 		return articles;
+	}
+	
+	@RequestMapping(value = "getArticleById", method = RequestMethod.GET)
+	@ResponseBody
+	public ArticleVo getArticleById(HttpServletRequest request){
+		User user = (User) request.getSession().getAttribute("user");
+		ArticleVo articleVo = new ArticleVo();
+		if(user == null){
+			articleVo.setMessage("not login,session is null");
+			return articleVo;
+		}
+		String article_id = request.getParameter("id");
+		Article article = articleService.findById(Long.parseLong(article_id));
+		Integer doctor_id = article.getDoctorid();
+		Doctor doctor = doctorService.findById(Long.parseLong(doctor_id+""));
+		
+		
+		return articleVo;
 	}
 
 }
