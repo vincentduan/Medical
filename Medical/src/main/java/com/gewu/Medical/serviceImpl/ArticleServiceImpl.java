@@ -101,4 +101,13 @@ public class ArticleServiceImpl implements ArticleService {
 		return null;
 	}
 
+	@Override
+	public List<Article> findArticlesByArticleIds(List<Integer> articleIds) {
+		ArticleExample articleExample = new ArticleExample();
+		Criteria criteria = articleExample.createCriteria();
+		criteria.andIdIn(articleIds);
+		List<Article> articles = articleMapper.selectByExample(articleExample);
+		return articles;
+	}
+
 }

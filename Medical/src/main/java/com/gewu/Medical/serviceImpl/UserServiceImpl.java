@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User findById(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return userMapper.selectByPrimaryKey(Integer.parseInt(id+""));
 	}
 
 	@Override
@@ -75,10 +75,17 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User register(User user) {
 		if(StringUtils.isNotEmpty(user.getUsername())&&StringUtils.isNotEmpty(user.getTelphone())){
-			
-			
 		}
 		return null;
+	}
+
+	@Override
+	public List<User> findByUserIds(List<Integer> userids) {
+		UserExample userExample = new UserExample();
+		Criteria criteria = userExample.createCriteria();
+		criteria.andIdIn(userids);
+		List<User> users = userMapper.selectByExample(userExample);
+		return users;
 	}
 
 }
