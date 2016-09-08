@@ -9,7 +9,7 @@ public interface ArticleService extends BaseService<Article> {
 
 	public List<Article> findAllArticles();
 
-	public Article queryByCondiction(Article article);
+	public List<Article> queryByCondiction(Article article);
 
 	public List<Article> findArticlesByArticleIds(List<Integer> articleIds);
 }

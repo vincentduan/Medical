@@ -85,5 +85,34 @@ public class ArticleController {
 		articleVo.setArticle(article);
 		return articleVo;
 	}
-
+	/**
+	 * 根据文章小分类，返回ArticleVo
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="getArticlesByCategoryChild", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Article> getArticleByCategoryChild(HttpServletRequest request){
+		String categoryChild = request.getParameter("category_child");
+		Article article = new Article();
+		article.setCategoryChild(Integer.parseInt(categoryChild));
+		List<Article> articles = articleService.findArticlesByCondition(article);
+		return articles;
+	}
+	
+	/**
+	 * 搜索文章
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="search", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Article> searchArticle(HttpServletRequest request){
+		String title = request.getParameter("title");
+		Article article = new Article();
+		article.setTitle(title);
+		List<Article> articles = articleService.findArticlesByCondition(article);
+		return articles;
+	}
+	
 }

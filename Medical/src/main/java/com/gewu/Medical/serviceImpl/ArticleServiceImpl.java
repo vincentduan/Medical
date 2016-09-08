@@ -78,11 +78,14 @@ public class ArticleServiceImpl implements ArticleService {
 		if(article.getDoctorid() != null){
 			criteria.andDoctoridEqualTo(article.getDoctorid());
 		}
-		if(StringUtils.isNotBlank(article.getCategoryParent()+"")){
+		if(article.getCategoryParent()!=null && StringUtils.isNotBlank(article.getCategoryParent()+"")){
 			criteria.andCategoryParentEqualTo(article.getCategoryParent());
 		}
-		if(StringUtils.isNotBlank(article.getCategoryChild()+"")){
+		if(article.getCategoryChild()!=null && StringUtils.isNotBlank(article.getCategoryChild()+"")){
 			criteria.andCategoryChildEqualTo(article.getCategoryChild());
+		}
+		if (article.getTitle()!=null && StringUtils.isNotBlank(article.getTitle())) {
+			criteria.andTitleLike("%"+article.getTitle()+"%");
 		}
 		List<Article> articles = articleMapper.selectByExample(articleExample);
 		return articles;
@@ -96,9 +99,14 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public Article queryByCondiction(Article article) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Article> queryByCondiction(Article article) {
+		ArticleExample articleExample = new ArticleExample();
+		Criteria criteria = articleExample.createCriteria();
+		if (article.getTitle()!=null && StringUtils.isNotBlank(article.getTitle())) {
+			criteria.andTitleLike(" %"+article.getTitle()+" %");
+		}
+		List<Article> articles = articleMapper.selectByExample(articleExample);
+		return articles;
 	}
 
 	@Override
