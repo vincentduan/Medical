@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.gewu.Medical.model.Article;
 import com.gewu.Medical.model.Doctor;
 import com.gewu.Medical.model.User;
+import com.gewu.Medical.model.UserCollectionArticle;
 import com.gewu.Medical.model.UserRelArticle;
 import com.gewu.Medical.service.ArticleService;
 import com.gewu.Medical.service.DoctorService;
+import com.gewu.Medical.service.UserCollectService;
 import com.gewu.Medical.service.UserRelArticleService;
 import com.gewu.Medical.service.UserService;
 import com.gewu.Medical.vo.ArticleVo;
@@ -37,6 +39,8 @@ public class ArticleController {
 	private UserRelArticleService userRelArticleService;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private UserCollectService userCollectService;
 	
 	@RequestMapping(value = "findAllArticles", method = RequestMethod.GET)
 	@ResponseBody
@@ -63,6 +67,9 @@ public class ArticleController {
 		Article article = articleService.findById(Long.parseLong(article_id));
 		Integer doctor_id = article.getDoctorid();
 		Doctor doctor = doctorService.findById(Long.parseLong(doctor_id+""));
+		//当前用户是否收藏了这篇文章
+		String isCollected = userCollectService.isCollectArticle(user, article);
+		articleVo.setIsCollected(isCollected);
 		//根据文章id得到 用户列表信息
 		List<UserRelArticle> userRelArticles = userRelArticleService.findUsersByArticleId(article.getId());
 		List<Integer> userids = new LinkedList<>();
@@ -113,6 +120,26 @@ public class ArticleController {
 		article.setTitle(title);
 		List<Article> articles = articleService.findArticlesByCondition(article);
 		return articles;
+	}
+	@RequestMapping(value="collect", method = RequestMethod.GET)
+	@ResponseBody
+	public String collectArticle(HttpServletRequest request){
+		User user = (User) request.getSession().getAttribute("user");
+		if(user == null){
+			return "not login,session is null";
+		}
+		String articleId = request.getParameter("articleId");
+		Article article = articleService.findById(Long.parseLong(articleId));
+		UserCollectionArticle userCollectionArticle = new UserCollectionArticle();
+		userCollectionArticle.setArticleId(Integer.parseInt(articleId));
+		userCollectionArticle.setUserid(user.getId());
+		String isCollected = userCollectService.isCollectArticle(user, article);
+		if(isCollected =="0"){
+			userCollectService.save(userCollectionArticle);
+			return "success";
+		}else{
+			return "fail";
+		}
 	}
 	
 }

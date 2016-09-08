@@ -12,6 +12,14 @@ public class ArticleVo {
 	private String message;
 	private Article article;
 	private List<Article> scanAricles;
+	private String isCollected;
+	
+	public String getIsCollected() {
+		return isCollected;
+	}
+	public void setIsCollected(String isCollected) {
+		this.isCollected = isCollected;
+	}
 	public Doctor getDoctor() {
 		return doctor;
 	}

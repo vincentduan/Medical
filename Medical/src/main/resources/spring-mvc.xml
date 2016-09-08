@@ -59,6 +59,7 @@
                         <value>/article/findAllArticles</value>
                         <value>/article/getArticleById</value>
                         <value>/article/getArticlesByCategoryChild</value>
+                        <value>/article/collect</value>
                         <value>/article/search</value>
                         <value>/index/login</value>
                         <value>/index/register</value>
